@@ -3,10 +3,3 @@
 /vendor
 *.log
 *.DS_Store
-test
-docs
-test
-epiiadmin-installer
-epiiadmin-app
-epiiadmin-lib
-thinkphp
