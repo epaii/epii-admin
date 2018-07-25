@@ -14,7 +14,7 @@
     }
   ],
   "require": {
-    "epii/epiiadmin-app": "dev-master",
+    "epii/epiiadmin-app": "1.0.0",
     "epii/epiiadmin-demo": "dev-master",
     "topthink/framework": "5.1.*"
   },
