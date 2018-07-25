@@ -3,22 +3,8 @@
   "type": "project",
   "repositories": [
     {
-      "type": "vcs",
-      "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-app/.git"
-    },
-    {
-      "type": "vcs",
-      "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-lib/.git"
-    },
-    {
-      "type": "vcs",
-
-      "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-installer/.git"
-    },
-    {
-      "type": "vcs",
-
-      "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-demo/.git"
+      "type": "composer",
+      "url": "http://master.packagist.wenshi.jt/"
     }
   ],
   "require": {
@@ -26,5 +12,16 @@
     "epii/epiiadmin-demo": "dev-master",
     "topthink/framework": "5.1.*"
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "scripts": {
+    "post-create-project-cmd": [
+      "php delsubgit.php"
+    ],
+    "post-install-cmd": [
+      "php delsubgit.php"
+    ],
+    "post-update-cmd": [
+      "php delsubgit.php"
+    ]
+  }
 }
