@@ -18,6 +18,7 @@
     "epii/epiiadmin-demo": "dev-master",
     "topthink/framework": "5.1.*"
   },
+
   "minimum-stability": "dev",
   "scripts": {
     "post-create-project-cmd": [
