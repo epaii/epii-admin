@@ -1,0 +1,24 @@
+{
+  "name": "epii/epiiadmin",
+  "type": "project",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-app/.git"
+    },
+    {
+      "type": "vcs",
+      "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-lib/.git"
+    },
+    {
+      "type": "vcs",
+
+      "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-installer/.git"
+    }
+  ],
+  "require": {
+    "epii/epiiadmin-app": "dev-master",
+    "topthink/framework": "5.1.*"
+  },
+  "minimum-stability": "dev"
+}
