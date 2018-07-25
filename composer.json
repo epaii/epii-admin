@@ -14,10 +14,16 @@
       "type": "vcs",
 
       "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-installer/.git"
+    },
+    {
+      "type": "vcs",
+
+      "url": "/Users/mrren/Documents/phpworkspace/epiiadmin-lib/epii/epiiadmin-demo/.git"
     }
   ],
   "require": {
     "epii/epiiadmin-app": "dev-master",
+    "epii/epiiadmin-demo": "dev-master",
     "topthink/framework": "5.1.*"
   },
   "minimum-stability": "dev"
