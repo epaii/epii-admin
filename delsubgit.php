@@ -59,6 +59,8 @@ function delsubgit($dir)
     }
     closedir($dh);
 
+
+
 //删除当前文件夹：
 //    if (rmdir($dir)) {
 //        return true;
