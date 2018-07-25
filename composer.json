@@ -7,6 +7,12 @@
       "url": "http://master.packagist.wenshi.jt/"
     }
   ],
+  "authors": [
+    {
+      "name": "MrRen",
+      "email": "543169072@qq.com"
+    }
+  ],
   "require": {
     "epii/epiiadmin-app": "dev-master",
     "epii/epiiadmin-demo": "dev-master",
