@@ -3,3 +3,6 @@
 /vendor
 *.log
 *.DS_Store
+docs
+test
+test.php
