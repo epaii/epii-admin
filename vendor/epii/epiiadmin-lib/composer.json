@@ -1,0 +1,16 @@
+{
+    "name": "epii/epiiadmin-lib",
+    "type": "source",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "MrRen",
+            "email": "543169072@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "wslibs\\": "src"
+        }
+    }
+}
