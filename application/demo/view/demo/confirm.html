@@ -1,0 +1,27 @@
+
+<section class="content" style="padding: 10px">
+    <script>
+        function fun_ok() {
+            console.log(" data-on-ok fun_ok");
+        }
+        function fun_cancel() {
+            console.log(" data-on-cancel fun_cancel");
+        }
+    </script>
+    <a class="btn btn-danger btn-confirm" data-msg="你确定要试试吗？" >Click Me</a>
+    <br>
+    <a class="btn btn-danger btn-confirm"
+       data-msg="我只是试试"
+       data-title="自定义标题"
+       data-on-ok="fun_ok"
+       data-on-cancel="fun_cancel"
+
+       data-btn-ok="确定吗？"
+       data-btn-cancel="取消吧"
+    >Click Me 1</a>
+    <br>
+    <a class="btn btn-danger btn-confirm" data-intop="1"   data-msg="我只是试试">Click Me to top window</a>
+</section>
+
+
+

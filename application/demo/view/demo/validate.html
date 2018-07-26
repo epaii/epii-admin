@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="page-header">
+                <a href="http://www.baidu.com" class="btn-prompt"  data-addtab="1" data-title="内容不错" data-value="重要的提示直说一遍"  data-on-ok="ok" data-btn-ok="李四"   data-intop="0" data-area="'500px','600px'">测试一个吧</a>
+
+                <div class="alert alert-info" role="alert">
+                    <h4>This demo shows how to integrate JQuery-validation and the Bootstrap framework.</h4>
+                    <ul>
+                        <li><a href="https://getbootstrap.com/" class="alert-link">Bootstrap home project</a>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Simple Form</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" data-form="1" method="post" class="form-horizontal" action="" data-before-submit="alert" data-title="内容不错" data-msg="重要的提示直说一遍" data-btn="知道了">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="firstname">First name</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="firstname" name="firstname"
+                                       data-rule-required="true" data-msg-required="adsfasfsdaf"
+                                       placeholder="First name"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="lastname">Last name</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="lastname" name="lastname" required
+                                       placeholder="Last name"/>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-5 col-sm-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="agree" name="agree" value="agree" required/>Please
+                                        agree to our policy
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-9 col-sm-offset-4">
+                                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Sign up
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+function ok(msg) {
+    alert(msg);
+}
+</script>

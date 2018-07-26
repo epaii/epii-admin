@@ -1,0 +1,15 @@
+{
+  "name": "epii/epiiadmin-demo",
+  "type": "epiiadmin-demo",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "MrRen",
+      "email": "543169072@qq.com"
+    }
+  ],
+  "require": {
+    "epii/epiiadmin-installer": "dev-master",
+    "epii/epiiadmin-lib": "dev-master"
+  }
+}

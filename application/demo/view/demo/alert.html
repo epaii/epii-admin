@@ -1,0 +1,18 @@
+
+<section class="content" style="padding: 10px">
+<a class="btn btn-danger btn-alert" data-msg="我只是试试">Click Me</a>
+</section>
+
+<script>
+    function fun1() {
+        console.log(" data-on-ok fun1");
+    }
+</script>
+
+<a class="btn btn-danger btn-alert" data-msg="我只是试试" data-title="自定义标题" data-on-ok="fun1">Click Me 2</a>
+<br>
+<a class="btn btn-info btn-alert" data-msg="确定要打开吗？"  data-on-ok="tag.a" href="http://www.baidu.com" data-dialog="1" title="百度" data-area="80%,80%">Click Me to dialog </a>
+<br>
+<a class="btn btn-info btn-alert" data-msg="确定要打开吗？"  data-on-ok="tag.a" href="http://www.baidu.com" data-addtab="1"  title="百度" >Click Me to addtab </a>
+<br>
+<a class="btn btn-danger btn-alert"   data-msg="我只是试试">Click Me to top window</a>
