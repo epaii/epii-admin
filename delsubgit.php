@@ -6,6 +6,7 @@
  * Time: 下午5:59
  */
 
+$type = $argv[1];
 function deldir($dir)
 {
     //先删除目录下的文件：
@@ -40,7 +41,7 @@ function delsubgit($dir)
             if (is_dir($fullpath)) {
 
 
-                if("./.git"!= $fullpath)
+                if(    "./.git"!= $fullpath)
                 {
 
                     if( strrchr($fullpath,".git")==".git" )
@@ -61,13 +62,6 @@ function delsubgit($dir)
 
 
 
-
-//删除当前文件夹：
-//    if (rmdir($dir)) {
-//        return true;
-//    } else {
-//        return false;
-//    }
 
 }
 delsubgit(".");

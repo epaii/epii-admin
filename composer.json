@@ -24,13 +24,13 @@
   "minimum-stability": "dev",
   "scripts": {
     "post-create-project-cmd": [
-      "php delsubgit.php"
+      "php delsubgit.php create"
     ],
     "post-install-cmd": [
-      "php delsubgit.php"
+      "php delsubgit.php install"
     ],
     "post-update-cmd": [
-      "php delsubgit.php"
+      "php delsubgit.php update"
     ]
   }
 }
