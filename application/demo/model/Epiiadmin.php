@@ -44,6 +44,9 @@ class Epiiadmin implements ILeftAndTopData
             ["id" => 5, "name" => "小组件", "url" => "http://www.baidu.com", "icon" => " fa fa-th", "pid" => 0, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["id" => 10, "name" => "alert", "url" => url("demo/index/showhtml", ['html' => "alert"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["id" => 11, "name" => "confirm", "url" => url("demo/index/showhtml", ['html' => "confirm"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
+            ["id" => 11, "name" => "dialog", "url" => url("demo/index/showhtml", ['html' => "dialog"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
+
+
             ["header" => 1, "title" => "其它设置", "after_id" => 5],
             ["id" => 6, "name" => "验证测试", "url" => url("demo/index/showhtml", ['html' => "validate"]), "icon" => " fa fa-circle-o text-danger", "pid" => 0],
             ["id" => 7, "name" => "关于我们", "url" => "http://www.baidu.com", "icon" => " fa fa-circle-o text-info", "pid" => 0],
