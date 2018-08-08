@@ -39,6 +39,11 @@ class Index extends EpiiController
         return $this->fetch("demo/" . $html);
     }
 
+    public function formajax()
+    {
+        return JsCmd::make()->addCmd(Alert::make()->msg("提交成功"))->run();
+    }
+
 
 
 

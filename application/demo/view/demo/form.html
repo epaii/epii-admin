@@ -1,0 +1,114 @@
+<section class="content" style="padding: 10px" >
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title"> data-before-submit="confirm" 表单</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <form role="form"   data-form="1" data-before-submit="confirm" data-msg="您确定要提交吗？" data-title="自定义标题" data-btn-ok="继续提交表单" data-btn-cancel="我不提交" data-intop="1" method="post"  action="{:url('demo/index/formajax')}">
+                        <div class="form-group">
+                            <label >名称：</label>
+                            <input type="text" class="form-control" name="name1"   placeholder="请输入名称" required>
+                        </div>
+                        <div class="form-group">
+                            <label >名称2：</label>
+                            <input type="text" class="form-control" name="name2"   placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <label >名称3：</label>
+                            <input type="text" class="form-control" name="name3"   placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                            <button type="reset" class="btn btn-default">重置</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content" style="padding: 10px" >
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title"> data-before-submit="alert" 表单</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <form role="form"   data-form="1" data-before-submit="alert" data-msg="我只是试试" data-title="自定义标题" data-btn="继续提交表单" data-intop="1" method="post"  action="{:url('demo/index/formajax')}">
+                        <div class="form-group">
+                            <label >名称：</label>
+                            <input type="text" class="form-control" name="name1"   placeholder="请输入名称" required>
+                        </div>
+                        <div class="form-group">
+                            <label >名称2：</label>
+                            <input type="text" class="form-control" name="name2"   placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <label >名称3：</label>
+                            <input type="text" class="form-control" name="name3"   placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                            <button type="reset" class="btn btn-default">重置</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function fun1(submit) {
+         alert("提交前先弹个框！");
+         submit();//提交表单
+    }
+</script>
+<section class="content" style="padding: 10px" >
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title">一个表单</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <form role="form"   data-form="1" data-before-submit="fun1" method="post"  action="{:url('demo/index/formajax')}">
+                        <div class="form-group">
+                            <label for="name1">名称：</label>
+                            <input type="text" class="form-control" name="name1" id="name1" placeholder="请输入名称" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name2">名称2：</label>
+                            <input type="text" class="form-control" name="name2" id="name2" placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name3">名称3：</label>
+                            <input type="text" class="form-control" name="name3" id="name3" placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                            <button type="reset" class="btn btn-default">重置</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
