@@ -1,4 +1,44 @@
+<script>
+    function fun1(field_value, row, index, field_name) {
+        return "<font color='red'>" + row.price + "#" + field_name + "#" + field_value + "</font>";
+
+    }
+    function btn1(field_value, row, index, field_name) {
+        return "<a class='btn btn-info btn-dialog' href='http://www.baidu.com'>详情</a>";
+
+    }
+    function btn2(field_value, row, index, field_name) {
+        return "<a class='btn btn-warning'>编辑</a>";
+
+    }
+
+    function mybtn(field_value, row, index, field_name) {
+        return "<a class='btn btn-info btn-dialog' href='http://www.baidu.com'>测试</a>"
+    }
+    
+    function do1(ids,select_data) {
+        console.log("select ids is:");
+        console.log(ids);
+        console.log("select_data is:");
+        console.log(select_data)
+    }
+</script>
 <div class="content">
+    <div class="card-body table-responsive" style="padding-top: 0px">
+
+        <a   class="btn btn-danger b  btn-table-tool"
+           data-do="do1">操作1</a>
+        <a   class="btn btn-info  btn-outline-info btn-table-tool"
+             data-do="refresh"><i class="fa fa-refresh"></i>刷新</a>
+        <a   class="btn btn-info  btn-outline-info btn-table-tool"
+             data-do="url"
+             data-dialog="1"
+             data-area="80%,90%"
+             data-title="详情"
+             href="{:url("demo/index/details")}?ids={ids}"
+        >详情</a>
+    </div>
+
 
     <div class="card-body table-responsive" style="padding-top: 0px">
 
@@ -6,12 +46,22 @@
             <thead>
             <tr>
                 <th data-checkbox="true"></th>
+                <th data-field="name" data-formatter="fun1">自定义列</th>
+                <th data-field="name" data-formatter="epiiFormatter" data-tag-style="background-color:#666">自定义列2</th>
+                <th data-field="name" data-formatter="epiiFormatter.btns" data-btns='btn1,btn2'>自定义列3</th>
                 <th data-field="id" data-formatter="epiiFormatter">网址
                 </th>
                 <th data-field="name" data-formatter="epiiFormatter">Item Name</th>
                 <th data-field="price" data-formatter="epiiFormatter">Item Price</th>
-                <th data-formatter="epiiFormatter.btns" data-btns="edit,detail,del,me"
-                    data-edit-url="http://www.baidu.com" data-edit-title="{name}"
+                <th data-formatter="epiiFormatter.url.dialog"
+                    data-url="http://www.baidu.com/?s={name}"
+                    data-page-title="{name}的详情"
+                    data-tag-attr="data-area='70%,80%'"
+                    data-value="详情">详情
+                </th>
+                <th data-formatter="epiiFormatter.btns" data-btns="edit,detail,del,mybtn"
+                    data-edit-url="http://www.baidu.com" data-edit-title="编辑{name}"
+                    data-detail-url="http://www.baidu.com" data-detail-title="{name}的详情"
                     data-del-msg="确定要删除{name}？" data-del-url="{:url('demo/index/del')}">操作
                 </th>
             </tr>

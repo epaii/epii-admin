@@ -47,8 +47,8 @@
                         <a href="javascript:;" class="btn btn-primary btn-refresh btn-table-tool" data-do="refresh"
                            data-table-id="table1" title="刷新"><i class="fa fa-refresh"></i>
                         </a>
-                        <a href="{:url('demo/index/ajaxdel')}" class="btn btn-danger btn-del    btn-table-tool"
-                           data-do="url" data-dialog="1" data-get-name="ids" title="删除"><i
+                        <a href="{:url('demo/index/ajaxdel')}?delids={ids}" class="btn btn-danger btn-del    btn-table-tool"
+                           data-do="url" data-ajax="1"   title="删除"><i
                                 class="fa fa-trash"></i> 删除</a>
                     </div>
                     <div class="pull-right">

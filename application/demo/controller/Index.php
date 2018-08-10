@@ -30,7 +30,7 @@ class Index extends EpiiController
 //        if ($html == "validate") {
 //            $this->jsAppName("demo/" . $html);
 //        }
-        $this->jsArgs("ddd","aaaa");
+        $this->jsArgs("ddd", "aaaa");
         if ($this->request->isAjax()) {
             sleep(10);
             return ['click' => 1, "test"];
@@ -45,10 +45,6 @@ class Index extends EpiiController
     }
 
 
-
-
-
-
     public function ajaxdata()
     {
 
@@ -57,9 +53,9 @@ class Index extends EpiiController
             ["id" => 2, "name" => "张三", "price" => "nicasq"],
             ["id" => 3, "name" => "张三", "price" => "nicasq", "price_class" => "badge badge-info", "price_style" => ["background-color" => "red"]],
             ["id" => 9, "name" => "张三", "price" => "nicasq"],
-            ["id" => 4, "name" => "张三",'name_style'=>["color"=>"red","background-color"=>"blue"], "price" => "nicasq"],
+            ["id" => 4, "name" => "张三", 'name_style' => ["color" => "red", "background-color" => "blue"], "price" => "nicasq"],
 
-            ["id" => 5, "name" => "张三", "price" => "nicasq",'name_color'=>"red"],
+            ["id" => 5, "name" => "张三", "price" => "nicasq", 'name_color' => "red"],
             ["id" => 7, "name" => "张三", "price" => "nicasq"],
         ], "total" => 100]);
     }
@@ -74,6 +70,7 @@ class Index extends EpiiController
         return JsCmd::make()->addCmd(Alert::make())->addCmd(JsEval::make()->add_string("alert(1);")->setTimeout(3000));
 
     }
+
     public function ajax_del()
     {
         $cmd = Alert::make()->msg("操作成功")->onOk(Refresh::make()->type("table"));
@@ -92,7 +89,13 @@ class Index extends EpiiController
     public function del()
     {
         // $this->success("asdfasdf","asfdsd",['a'=>1,"b"=>2]);
-        return JsCmd::make()->addCmd(Alert::make()->onOk(Url::make()->url(url("demo/index/showhtml/",["html"=>"test1"]))->intop(1)->openType("dialog")->title("百度")))->addCmd(JsEval::make()->add_string("alert(1);")->setTimeout(3000)->add_function("myalert", ["asdfasdfasdf"]))->run();
+        return JsCmd::make()->addCmd(Alert::make()->onOk(Url::make()->url(url("demo/index/showhtml/", ["html" => "test1"]))->intop(1)->openType("dialog")->title("百度")))->addCmd(JsEval::make()->add_string("alert(1);")->setTimeout(3000)->add_function("myalert", ["asdfasdfasdf"]))->run();
 
     }
+
+    public function details()
+    {
+        print_r($_GET);
+    }
+
 }
