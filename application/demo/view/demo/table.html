@@ -1,0 +1,22 @@
+<div class="content">
+
+    <div class="card-body table-responsive" style="padding-top: 0px">
+
+        <table data-table="1" data-url="{:url('demo/index/ajaxdata')}" id="table1" class="table table-hover">
+            <thead>
+            <tr>
+                <th data-checkbox="true"></th>
+                <th data-field="id" data-formatter="epiiFormatter">网址
+                </th>
+                <th data-field="name" data-formatter="epiiFormatter">Item Name</th>
+                <th data-field="price" data-formatter="epiiFormatter">Item Price</th>
+                <th data-formatter="epiiFormatter.btns" data-btns="edit,detail,del,me"
+                    data-edit-url="http://www.baidu.com" data-edit-title="{name}"
+                    data-del-msg="确定要删除{name}？" data-del-url="{:url('demo/index/del')}">操作
+                </th>
+            </tr>
+            </thead>
+        </table>
+
+    </div>
+</div>

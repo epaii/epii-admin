@@ -57,7 +57,7 @@ class Index extends EpiiController
             ["id" => 2, "name" => "张三", "price" => "nicasq"],
             ["id" => 3, "name" => "张三", "price" => "nicasq", "price_class" => "badge badge-info", "price_style" => ["background-color" => "red"]],
             ["id" => 9, "name" => "张三", "price" => "nicasq"],
-            ["id" => 4, "name" => "张三", "price" => "nicasq",'name_style'=>["color"=>"red","background-color"=>"blue"]],
+            ["id" => 4, "name" => "张三",'name_style'=>["color"=>"red","background-color"=>"blue"], "price" => "nicasq"],
 
             ["id" => 5, "name" => "张三", "price" => "nicasq",'name_color'=>"red"],
             ["id" => 7, "name" => "张三", "price" => "nicasq"],
