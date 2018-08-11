@@ -15,28 +15,104 @@
     function mybtn(field_value, row, index, field_name) {
         return "<a class='btn btn-info btn-dialog' href='http://www.baidu.com'>测试</a>"
     }
-    
-    function do1(ids,select_data) {
+
+    function do1(ids, select_data) {
         console.log("select ids is:");
         console.log(ids);
         console.log("select_data is:");
         console.log(select_data)
     }
 </script>
+<section class="content" style="padding: 10px">
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title"> 搜索</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <form role="form" class="form-inline" data-form="1" data-search-table-id="1">
+                        <div class="form-group">
+                            <label>名称：</label>
+                            <input type="text" class="form-control" name="name1" placeholder="请输入名称" required>
+                        </div>
+                        <div class="form-group">
+                            <label>名称2：</label>
+                            <input type="text" class="form-control" name="name2" placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <label>名称3：</label>
+                            <input type="text" class="form-control" name="name3" placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                            <button type="reset" class="btn btn-default">重置</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content" style="padding: 10px">
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title"> 搜索前提示</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <form role="form" class="form-inline" data-form="1" data-search-table-id="1" data-before-submit="confirm" data-msg="您确定要搜索吗？" data-title="自定义标题" data-btn-ok="继续搜索" data-btn-cancel="我不搜索" data-intop="1">
+                        <div class="form-group">
+                            <label>名称：</label>
+                            <input type="text" class="form-control" name="name1" placeholder="请输入名称" required>
+                        </div>
+                        <div class="form-group">
+                            <label>名称2：</label>
+                            <input type="text" class="form-control" name="name2" placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                            <button type="reset" class="btn btn-default">重置</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="content">
     <div class="card-body table-responsive" style="padding-top: 0px">
 
-        <a   class="btn btn-danger b  btn-table-tool"
+        <a class="btn btn-danger b  btn-table-tool"
            data-do="do1">操作1</a>
-        <a   class="btn btn-info  btn-outline-info btn-table-tool"
-             data-do="refresh"><i class="fa fa-refresh"></i>刷新</a>
-        <a   class="btn btn-info  btn-outline-info btn-table-tool"
-             data-do="url"
-             data-dialog="1"
-             data-area="80%,90%"
-             data-title="详情"
-             href="{:url("demo/index/details")}?ids={ids}"
+        <a class="btn btn-info  btn-outline-info btn-table-tool"
+           data-do="refresh"><i class="fa fa-refresh"></i>刷新</a>
+        <a class="btn btn-info  btn-outline-info btn-table-tool"
+           data-do="url"
+           data-dialog="1"
+           data-area="80%,90%"
+           data-title="详情"
+           href="{:url(" demo/index/details")}?ids={ids}"
         >详情</a>
+        <a class="btn btn-danger  btn-outline-info btn-table-tool"
+           data-do="url"
+           data-alert="1"
+           data-ajax="1"
+           data-title="提示"
+           data-msg="确定要删除吗？"
+           data-intop="1"
+           href="{:url(" demo/index/ajax_del")}?ids={ids}">删除</a>
     </div>
 
 
