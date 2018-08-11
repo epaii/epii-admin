@@ -31,32 +31,28 @@
     - 其它
     - 上述组件虽多，但都已有效集成在系统中，后台人员无需了解其使用方法。
 - 支持多种主题。
+- 完善的教程和文档。
 
 ## 在线演示
 
-[EpiiAdmin演示](http://demo.epii-admin.epii.cn/){:target="_blank"}
+[EpiiAdmin演示](http://demo.epii-admin.epii.cn/)
 
 ## 在线演示
 
-[EpiiAdmin在线中文文档](https://www.kancloud.cn/rlr123654/epiiadmin-php/704402){:target="_blank"}
+[EpiiAdmin在线中文文档](https://www.kancloud.cn/rlr123654/epiiadmin-php/704402)
 
 ### 仓库首页
 ```
-https://gitee.com/epii/EpiiAdmin
+https://github.com/epaii/epii-admin
 ```
-### 克隆
-```
-git clone git@gitee.com:epii/EpiiAdmin.git
-```
-### Zip下载连接
+
+码云（gitee）仓库首页
 ```
 https://gitee.com/epii/EpiiAdmin
 ```
-
-
-
 
 >注：添加虚拟主机并绑定到EpiiAdmin/public目录 
+
 ### 环境要求
 ```
 1. PHP >= 5.5.0 (推荐PHP7.1版本)
@@ -67,7 +63,6 @@ https://gitee.com/epii/EpiiAdmin
      MBstring
      CURL
 ```
-
 
 
 # Demo 截图
