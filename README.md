@@ -1,12 +1,12 @@
-# EpiiAdmin,php开源交互性管理后台框架,让复杂的交互变得更简单！Phper快速搭建交互性平台的开发框架
+# EpiiAdmin
+
+EpiiAdmin php开源交互性管理后台框架,基于Thinkphp5.1+Adminlte3.0+Require.js, 让复杂的交互变得更简单！Phper快速搭建交互性平台的开发框架
 
 <p align=center>
 <img src="https://raw.githubusercontent.com/epaii/epii-admin/master/epiiadmin_logo.jpg" alt="epiiadmin" width="100%">
  
 </p>
-<p align=center >
-  <b>EpiiAdmin  php开源交互性管理后台框架,让复杂的交互变得更简单！Phper快速搭建交互性平台的开发框架。</b>
-</p>
+
 
 
 ### `EpiiAdmin`是基于`Thinkphp5.1+Adminlte3.0+Require.js`的快速搭建通用管理中心或用户中心的开发框架。
