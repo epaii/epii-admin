@@ -71,6 +71,8 @@ https://gitee.com/epii/EpiiAdmin
 # 教程文档目录
 ![mulu]
 
+[EpiiAdmin在线中文文档](https://www.kancloud.cn/rlr123654/epiiadmin-php/704402)
+
 [screen]:https://raw.githubusercontent.com/epaii/epii-admin/master/screen.png
 [mulu]:https://raw.githubusercontent.com/epaii/epii-admin/master/mulu1.png
 
