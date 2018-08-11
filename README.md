@@ -1,7 +1,7 @@
 # EpiiAdmin  让复杂的交互变得更简单
 
 <p align=center>
-<img src="https://github.com/epaii/epii-admin/blob/master/epiiadmin_logo.jpg?raw=true" alt="epiiadmin" width="520">
+<img src="https://github.com/epaii/epii-admin/blob/master/epiiadmin_logo.jpg?raw=true" alt="epiiadmin" width="800">
  
 </p>
 <p align=center >
