@@ -72,5 +72,5 @@ https://gitee.com/epii/EpiiAdmin
 ![mulu]
 
 [screen]:https://raw.githubusercontent.com/epaii/epii-admin/master/screen.png
-[mulu]:https://raw.githubusercontent.com/epaii/epii-admin/master/mulu.png
+[mulu]:https://raw.githubusercontent.com/epaii/epii-admin/master/mulu1.png
 
