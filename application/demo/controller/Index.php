@@ -30,6 +30,9 @@ class Index extends EpiiController
 //        if ($html == "validate") {
 //            $this->jsAppName("demo/" . $html);
 //        }
+
+
+
         $this->jsArgs("ddd", "aaaa");
         if ($this->request->isAjax()) {
             sleep(10);
