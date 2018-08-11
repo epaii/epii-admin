@@ -68,7 +68,9 @@ https://gitee.com/epii/EpiiAdmin
 
 # Demo 截图
 ![screen]
-
+# 教程文档目录
+![mulu]
 
 [screen]:https://raw.githubusercontent.com/epaii/epii-admin/master/screen.png
+[mulu]:https://raw.githubusercontent.com/epaii/epii-admin/master/mulu.png
 
