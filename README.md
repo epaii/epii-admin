@@ -34,9 +34,11 @@
 
 ## 在线演示
 
-[EpiiAdmin演示](http://demo.epii-admin.epii.cn/)
+[EpiiAdmin演示](http://demo.epii-admin.epii.cn/){:target="_blank"}
 
+## 在线演示
 
+[EpiiAdmin在线中文文档](https://www.kancloud.cn/rlr123654/epiiadmin-php/704402){:target="_blank"}
 
 ### 仓库首页
 ```
