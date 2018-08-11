@@ -69,5 +69,5 @@ https://gitee.com/epii/EpiiAdmin
 ![screen]
 
 
-[screen]:https://epii.gitee.io/epiiadmin-js/img/screen.png
+[screen]:https://raw.githubusercontent.com/epaii/epii-admin/master/screen.png
 
