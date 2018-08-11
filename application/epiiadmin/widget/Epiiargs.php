@@ -16,7 +16,7 @@ class Epiiargs
     public function data()
     {
         $data = [
-            "baseUrl" => STATIC_URL_ROOT . "/js/",
+            "baseUrl" => WEB_SITE_ROOT . "epiiadmin-js/js/",
             "appUrl" => WEB_SITE_ROOT."static/js/app/",
             "pluginsUrl" => "./plugins/",
             "epiiInitFunctionsName" => "epiiInitFunctions",

@@ -1,0 +1,10 @@
+.dropdown-menu a{
+    color: #212529!important;
+}
+.wstabs li.active a,.wstabs a:hover{
+    border-bottom: 2px solid #fff;
+}
+
+.bg-gray-light .wstabs li.active a,.bg-gray-light .wstabs a:hover{
+    border-bottom: 2px solid #666;
+}
