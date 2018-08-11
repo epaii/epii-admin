@@ -1,7 +1,7 @@
 # EpiiAdmin  让复杂的交互变得更简单
 
 <p align=center>
-<img src="https://github.com/epaii/epii-admin/blob/master/epiiadmin_logo.jpg?raw=true" alt="epiiadmin" width="800">
+<img src="https://raw.githubusercontent.com/epaii/epii-admin/master/epiiadmin_logo.jpg" alt="epiiadmin" width="100%">
  
 </p>
 <p align=center >
@@ -9,9 +9,10 @@
 </p>
 
 
-> `EpiiAdmin`是基于`Thinkphp5.1+Adminlte3.0+Require.js`的快速搭建通用管理中心或用户中心的开发框架。
+### `EpiiAdmin`是基于`Thinkphp5.1+Adminlte3.0+Require.js`的快速搭建通用管理中心或用户中心的开发框架。
 
-### 不得不说的废话
+### 解决了什么问题。
+
 > Php在快速开发web应用上优势很明显，尤其是php7.2在性能上大幅度提高，技术的不断更新，新的框架不断产生，使得很多应用层框架来不及更新。我们在遇到新项目时，总是徘徊用旧的框架去开发，还是用到新的框架去做。选择之后很很多人选择了用旧框架，为什么？因为任何一个系统总需要管理中心，或用户中心，而这些界面更多的是前台框架。很多Phper想使用最新的框架（laravel或者thinkphp5.1）去开发，但因前端而止步，不得不为了进度，用旧的系统去改。EpiiAdmin 正是为了解决这些问题。本框架虽然基于tp5.1,但很容易改为laravel。
 
 # 特性
