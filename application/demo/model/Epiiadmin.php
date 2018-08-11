@@ -49,6 +49,7 @@ class Epiiadmin implements ILeftAndTopData
             ["id" => 14, "name" => "prompt", "url" => url("demo/index/showhtml", ['html' => "prompt"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["id" => 15, "name" => "form", "url" => url("demo/index/showhtml", ['html' => "form"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["id" => 16, "name" => "table/list", "url" => url("demo/index/showhtml", ['html' => "table"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
+            ["id" => 17, "name" => "city-picker", "url" => url("demo/index/showhtml", ['html' => "city"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["header" => 1, "title" => "其它设置", "after_id" => 5],
             ["id" => 6, "name" => "开发文档", "url" => "http://docs.epii-admin.epii.cn", "icon" => " fa fa-circle-o text-danger", "pid" => 0],
 
