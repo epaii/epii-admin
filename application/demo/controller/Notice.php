@@ -21,6 +21,7 @@ class Notice implements ITopRightNavItem
     public function getHtml()
     {
         // TODO: Implement getHtml() method.
+
         return template_parse("notice/innav");
     }
 }
