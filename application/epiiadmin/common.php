@@ -16,13 +16,9 @@ define('WEB_DOMAIN_ROOT', "http://" . $_SERVER['HTTP_HOST']);
 define('WEB_SITE_ROOT', "http://" . $_SERVER['HTTP_HOST'] . "/");
 
 
-if ( \think\facade\Env::get("static_domain"))
-{
-    define("STATIC_URL_ROOT", \think\facade\Env::get("static_domain"));
 
-}else{
-    define("STATIC_URL_ROOT", WEB_SITE_ROOT."/epiiadmin-js");
-}
+ define("STATIC_URL_ROOT", WEB_SITE_ROOT."/epiiadmin-js");
+
 
 define('IS_YUN', true);
 
