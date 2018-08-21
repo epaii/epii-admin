@@ -36,11 +36,11 @@ EpiiAdmin php开源交互性管理后台框架,基于Thinkphp5.1+Adminlte3.0+Req
 
 ## 在线演示
 
-[EpiiAdmin演示](http://epiiadmin.chinacloudsites.cn)
+[EpiiAdmin演示](http://epiiadmin.chinacloudsites.cn)[bug已修复]
 
 ## 在线文档
 
-[EpiiAdmin在线中文文档](https://www.kancloud.cn/rlr123654/epiiadmin-php/704402)
+[EpiiAdmin在线中文文档](https://www.kancloud.cn/rlr123654/epiiadmin-php/704402)[已完结]
 
 ### 仓库首页
 ```
