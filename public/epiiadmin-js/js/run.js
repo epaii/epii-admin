@@ -25,6 +25,8 @@ require.config({
         "eval": "model/epii.eval",
         'city-picker': "model/epii.city.picker",
         'city-picker-core': Args.pluginsUrl +'city-picker/dist/js/city-picker'+ Args.min,
+        'bootstrap-select':  Args.pluginsUrl + '/bootstrap-select/dist/js/bootstrap-select'+ Args.min,
+        'bootstrap-select-lang': Args.pluginsUrl +'bootstrap-select/dist/js/i18n/defaults-zh_CN'
     },
     shim: {
         'bootstrap': ['jquery'],
@@ -44,13 +46,15 @@ require.config({
         "table": ["bootstrap-table-lang"],
         "inittop": ["css!model/epii.inittop.css"],
         "city-picker":['city-picker-core'],
-        "city-picker-core": [Args.pluginsUrl +'city-picker/dist/js/city-picker.data',"css!"+Args.pluginsUrl +"city-picker/dist/css/city-picker.css"]
+        "city-picker-core": [Args.pluginsUrl +'city-picker/dist/js/city-picker.data',"css!"+Args.pluginsUrl +"city-picker/dist/css/city-picker.css"],
+        'bootstrap-select': ['css!'+Args.pluginsUrl +'bootstrap-select/dist/css/bootstrap-select.min.css' ],
+        'bootstrap-select-lang': ['bootstrap-select']
     },
     map: {
         '*': {
             'css': Args.pluginsUrl +'/require-css/css.min'
         }
-    },
+    }
 
 });
 

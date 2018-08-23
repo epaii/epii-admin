@@ -212,9 +212,8 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
                     offset: "50px"
                 }, data);
 
-            if (!data['onOk'])
-            {
-               data['onOk'] = "tag.a";
+            if (!data['onOk']) {
+                data['onOk'] = "tag.a";
             }
 
             callback = epiiAdmin.tools.getFunction(callback, data, "onOk");
@@ -231,8 +230,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
                     offset: "50px",
                     btn: [epiiAdmin.getTrueValue(data['btnOk'], "确定"), epiiAdmin.getTrueValue(data['btnCancel'], "取消")]
                 }, data);
-            if (!data['onOk'])
-            {
+            if (!data['onOk']) {
                 data['onOk'] = "tag.a";
             }
             onOk = epiiAdmin.tools.getFunction(onOk, data, "onOk");
@@ -432,6 +430,12 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
         require(['city-picker'], function (citypicker) {
             citypicker.init(citys);
         })
+    }
+
+    if  (($(".selectpicker").size() > 0)   || ($('[data-select="1"]').size() > 0) ) {
+        require(['bootstrap-select', 'bootstrap-select-lang'], function () {
+            $('.selectpicker').selectpicker();
+        });
     }
 //auto a or btn
 
