@@ -432,7 +432,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
         })
     }
 
-    if  (($(".selectpicker").size() > 0)   || ($('[data-select="1"]').size() > 0) ) {
+    if  (($(".selectpicker").length > 0)   || ($('[data-select="1"]').length > 0) ) {
         require(['bootstrap-select', 'bootstrap-select-lang'], function () {
             $('.selectpicker').selectpicker();
         });
