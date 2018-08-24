@@ -412,7 +412,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
 
 
 //auto form
-    var forms, tables, citys;
+    var forms, tables, citys,selects;
     if ((forms = $("form[data-form=1]")) && forms.length > 0) {
         require(['form'], function (Form) {
             Form(forms);
@@ -431,16 +431,18 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
             citypicker.init(citys);
         })
     }
+    if (((selects = $(".selectpicker")) && selects.length > 0) || ((selects = $('[data-select="1"]')) && selects.length > 0)) {
+        require(['epii-select'], function (epiiselect) {
 
-    if  (($(".selectpicker").length > 0)   || ($('[data-select="1"]').length > 0) ) {
-        require(['bootstrap-select', 'bootstrap-select-lang'], function () {
-            $('.selectpicker').selectpicker();
+            epiiselect.init(selects);
         });
     }
+    console.log(selects);
 //auto a or btn
 
 
-    $("body").on('click', '.btn-addtab', function (e) {
+    var jbody = $("body");
+    jbody.on('click', '.btn-addtab', function (e) {
 
         e.stopPropagation();
         e.preventDefault();
@@ -454,7 +456,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
     });
 
 
-    $("body").on('click', '.btn-dialog', function (e) {
+    jbody.on('click', '.btn-dialog', function (e) {
 
 
         e.stopPropagation();
@@ -463,7 +465,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
         var title = data['title'] ? data['title'] : ($(this).attr("title") ? $(this).attr("title") : null);
         EpiiAdmin.bindWindow(this_window_id).openInDialog(epiiAdmin.tools.getUrlInTagA(this), title, data['intop'], data['area'])
     });
-    $("body").on('click', '.div-dialog', function (e) {
+    jbody.on('click', '.div-dialog', function (e) {
 
         e.stopPropagation();
         e.preventDefault();
@@ -471,7 +473,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
         var title = data['title'] ? data['title'] : ($(this).attr("title") ? $(this).attr("title") : null);
         EpiiAdmin.bindWindow(this_window_id).openDivDialog($(this).html(), title, data['intop'], data['area'])
     });
-    $("body").on('click', '.btn-alert', function (e) {
+    jbody.on('click', '.btn-alert', function (e) {
 
 
         e.stopPropagation();
@@ -482,7 +484,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
         data['this'] = this;
         EpiiAdmin.bindWindow(this_window_id).alert(data);
     });
-    $("body").on('click', '.btn-confirm', function (e) {
+    jbody.on('click', '.btn-confirm', function (e) {
 
 
         e.stopPropagation();
@@ -493,17 +495,17 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
         data['this'] = this;
         EpiiAdmin.bindWindow(this_window_id).confirm(data);
     });
-    $("body").on('click', '.btn-ajax', function (e) {
+    jbody.on('click', '.btn-ajax', function (e) {
 
 
         e.stopPropagation();
         e.preventDefault();
 
-        $(this).attr("data-ajax", 1)
+        $(this).attr("data-ajax", 1);
 
         EpiiAdmin.bindWindow(this_window_id).tag.a(this, true);
     });
-    $("body").on('click', '.btn-prompt', function (e) {
+    jbody.on('click', '.btn-prompt', function (e) {
 
 
         e.stopPropagation();
@@ -514,7 +516,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
         data['this'] = this;
         EpiiAdmin.bindWindow(this_window_id).prompt(data);
     });
-    $("body").on('click', '.btn-table-tool', function (e) {
+    jbody.on('click', '.btn-table-tool', function (e) {
 
         e.stopPropagation();
         e.preventDefault();
@@ -523,7 +525,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
         epiiAdmin.bindWindow(this_window_id).table.do(this);
     });
 
-    $("body").on('click', '.tag-a', function (e) {
+    jbody.on('click', '.tag-a', function (e) {
         console.log("click:" + this_window_id);
         e.stopPropagation();
         e.preventDefault();
