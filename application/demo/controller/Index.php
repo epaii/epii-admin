@@ -101,4 +101,9 @@ class Index extends EpiiController
         print_r($_GET);
     }
 
+    public function arr()
+    {
+        return json([["text"=>"aaa"],["text"=>"bbb"],["text"=>"ccc"]]);
+    }
+
 }

@@ -412,7 +412,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
 
 
 //auto form
-    var forms, tables, citys,selects;
+    var forms, tables, citys, selects,input_search;
     if ((forms = $("form[data-form=1]")) && forms.length > 0) {
         require(['form'], function (Form) {
             Form(forms);
@@ -437,6 +437,14 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
             epiiselect.init(selects);
         });
     }
+    if ((input_search = $('[data-input-search="1"]')) && selects.length > 0) {
+            require(['input-search'],function (epii_search) {
+
+                epii_search.init(input_search);
+            })
+    }
+
+
     console.log(selects);
 //auto a or btn
 
