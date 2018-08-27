@@ -103,7 +103,7 @@ class Index extends EpiiController
 
     public function arr()
     {
-        return json([["text"=>"aaa"],["text"=>"bbb"],["text"=>"ccc"]]);
+        return json([["text"=>"aaa","id"=>"1"],["text"=>"bbb","id"=>"2"],["text"=>"ccc","id"=>"3"]]);
     }
 
 }
