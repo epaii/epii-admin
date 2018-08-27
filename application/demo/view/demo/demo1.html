@@ -23,7 +23,7 @@
                 <div class="form-group col-md-4">
 
                     <div class="input-group"  >
-                        <input type="text"  data-input-search=1  data-url="http://public.epiiadmin.this.jt:6688/index.php/index/arr"  data-input-text="mytext" class="form-control"  >
+                        <input type="text"  data-input-search=1 data-on-select="test"  data-url="http://public.epiiadmin.this.jt:6688/index.php/index/arr"  data-input-text="mytext" class="form-control"  >
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                 <span class="caret"></span>
@@ -130,4 +130,10 @@
 
 
     </form>
+    <script>
+        function test() {
+
+        console.log(arguments);
+    }
+    </script>
 </div>
