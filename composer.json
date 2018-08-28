@@ -16,7 +16,8 @@
   "require": {
     "epii/epiiadmin-app": "1.0.0",
     "epii/epiiadmin-demo": "dev-master",
-    "topthink/framework": "5.1.*"
+    "topthink/framework": "5.1.*",
+    "xaboy/form-builder": "dev-master"
   },
 
 

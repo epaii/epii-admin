@@ -214,5 +214,44 @@
                 "email": "448901948@qq.com"
             }
         ]
+    },
+    {
+        "name": "xaboy/form-builder",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/xaboy/form-builder.git",
+            "reference": "3ce211b4513254b8cd5893840fd72f7600f92b3c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/xaboy/form-builder/zipball/3ce211b4513254b8cd5893840fd72f7600f92b3c",
+            "reference": "3ce211b4513254b8cd5893840fd72f7600f92b3c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2018-07-03T02:48:10+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "FormBuilder\\": "./src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "xaboy",
+                "email": "xaboy2005@qq.com"
+            }
+        ],
+        "description": "PHP表单生成器，快速生成现代化的form表单。包含复选框、单选框、输入框、下拉选择框等元素以及,省市区三级联动,时间选择,日期选择,颜色选择,文件/图片上传等功能。",
+        "homepage": "https://github.com/xaboy/form-builder"
     }
 ]

@@ -9,4 +9,5 @@ return array(
     'wslibs\\' => array($vendorDir . '/epii/epiiadmin-lib/src'),
     'think\\composer\\' => array($vendorDir . '/topthink/think-installer/src'),
     'epii\\composer\\' => array($vendorDir . '/epii/epiiadmin-installer/src'),
+    'FormBuilder\\' => array($vendorDir . '/xaboy/form-builder/src'),
 );

@@ -23,6 +23,10 @@ class ComposerStaticInit7a0da5ddeada5824710ba05be8c604ff
         array (
             'epii\\composer\\' => 14,
         ),
+        'F' => 
+        array (
+            'FormBuilder\\' => 12,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -37,6 +41,10 @@ class ComposerStaticInit7a0da5ddeada5824710ba05be8c604ff
         'epii\\composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/epii/epiiadmin-installer/src',
+        ),
+        'FormBuilder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/xaboy/form-builder/src',
         ),
     );
 
