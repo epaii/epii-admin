@@ -81,7 +81,7 @@ class Epiiadmin implements ILeftAndTopData
 
     public function getMenuActiveId()
     {
-        return 9;
+        return 10;
     }
 
     public function isMenuAllOpen()
