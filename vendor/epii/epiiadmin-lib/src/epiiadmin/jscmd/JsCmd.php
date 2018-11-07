@@ -13,6 +13,23 @@ use wslibs\i\epiiadmin\IJsCmd;
 
 class JsCmd
 {
+
+
+
+
+
+
+
+
+
+
+    private static $_return_string = true;
+
+    public static function returnData( $is_data)
+    {
+        self::$_return_string = !$is_data;
+    }
+
     private $cmds = [];
 
 
@@ -20,6 +37,7 @@ class JsCmd
     {
         return new self();
     }
+
 
     public function addCmd(IJsCmd $cmd)
     {
@@ -29,7 +47,14 @@ class JsCmd
 
     public function run()
     {
-        return json(['code' => 1, "msg" => "", "data" => ["epii_eval" => 1, "cmds" => $this->cmds]]);
+        if (self::$_return_string)
+            return json(['code' => 1, "msg" => "", "data" => $this->getCmdData()]);
+        else return $this->getCmdData();
+    }
+
+    public function getCmdData()
+    {
+        return ["epii_eval" => 1, "cmds" => $this->cmds];
     }
 
     public static function alertRefresh($msg = "操作成功", $layerNum = 0)

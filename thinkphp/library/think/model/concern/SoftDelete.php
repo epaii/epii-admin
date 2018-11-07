@@ -97,7 +97,8 @@ trait SoftDelete
             return false;
         }
 
-        $name = $this->getDeleteTimeField();
+        $force = $force ?: $this->isForce();
+        $name  = $this->getDeleteTimeField();
 
         if ($name && !$force) {
             // 软删除
@@ -211,7 +212,7 @@ trait SoftDelete
             return false;
         }
 
-        if (!strpos($field, '.')) {
+        if (false === strpos($field, '.')) {
             $field = '__TABLE__.' . $field;
         }
 

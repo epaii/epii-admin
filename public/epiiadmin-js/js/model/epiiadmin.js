@@ -445,7 +445,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
     }
 
 
-    console.log(selects);
+
 //auto a or btn
 
 

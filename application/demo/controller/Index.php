@@ -14,8 +14,8 @@ class Index extends EpiiController
 {
     public function index()
     {
-        $this->jsAppName("demo/a");
-
+       // $this->jsAppName("demo/a");
+        $this->setPageTitle("测试中心");
         return $this->showTopWindow(new \app\demo\model\Epiiadmin());
     }
 

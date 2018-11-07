@@ -9,7 +9,6 @@
     }
   ],
   "require": {
-    "epii/epiiadmin-installer": "dev-master",
-    "epii/epiiadmin-lib": "dev-master"
+    "epii/epiiadmin-installer": "1.0.0"
   }
 }

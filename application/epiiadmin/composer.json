@@ -9,8 +9,8 @@
     }
   ],
   "require": {
-    "epii/epiiadmin-installer": "dev-master",
-    "epii/epiiadmin-lib": "dev-master"
+    "epii/epiiadmin-installer": "1.0.0",
+    "epii/epiiadmin-lib": "1.1.0"
   },
   "autoload": {
     "files": ["common.php"]

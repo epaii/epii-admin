@@ -15,6 +15,8 @@ class Epiiargs
 
     public function data()
     {
+        $manager = app(\wslibs\i\epiiadmin\IJavaScriptArgs::class);
+
         $data = [
             "baseUrl" => STATIC_URL_ROOT . "/js/",
             "appUrl" => WEB_SITE_ROOT."static/js/app/",
@@ -25,9 +27,9 @@ class Epiiargs
             "site_url" => WEB_SITE_ROOT,
             "version" => time(),
             "window_id"=>md5(request()->url()),
-            "data"=>['title'=>"文始管理中心"]
+            "data"=>['title'=>""]
         ];
-        $manager = app(\wslibs\i\epiiadmin\IJavaScriptArgs::class);
+
         $data['data'] = array_merge($data['data'],$manager->getData());
         if (isset($data['data']['appName'])) $data['appName'] = $data['data']['appName'];
         return json_encode($data);

@@ -387,7 +387,7 @@ class Template
         }
 
         // 优化生成的php代码
-        $content = preg_replace('/\?>\s*<\?php\s(?!echo\b)/s', '', $content);
+        $content = preg_replace('/\?>\s*<\?php\s(?!echo\b|\bend)/s', '', $content);
 
         // 模板过滤输出
         $replace = $this->config['tpl_replace_string'];
@@ -1050,7 +1050,7 @@ class Template
 
                 switch (strtolower($fun)) {
                     case 'raw':
-                        continue;
+                        break;
                     case 'date':
                         $name = 'date(' . $args[1] . ',!is_numeric(' . $name . ')? strtotime(' . $name . ') : ' . $name . ')';
                         break;
@@ -1306,5 +1306,13 @@ class Template
         }
 
         return '/' . $regex . '/is';
+    }
+
+    public function __debugInfo()
+    {
+        $data = get_object_vars($this);
+        unset($data['app'], $data['storege']);
+
+        return $data;
     }
 }

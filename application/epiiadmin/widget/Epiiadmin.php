@@ -31,8 +31,8 @@ class EpiiAdmin
         $menu = $manager->getLeftMenuData();
 
         $siteuserinfo['menu'] = $menu;
-        $siteuserinfo['menu_open'] = true;
-        $siteuserinfo['menu_active_id'] = 3;
+        $siteuserinfo['menu_open'] = $manager->isMenuAllOpen();
+        $siteuserinfo['menu_active_id'] = (int)$manager->getMenuActiveId();
 
         $asider = app(\wslibs\i\epiiadmin\IAsideMaker::class);
 

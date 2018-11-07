@@ -121,10 +121,10 @@ define(['bootstrap-table', "jquery"], function (bTable, $) {
             if (this.pageTitle) tagattr += " data-title='" + EpiiAdmin.tools.replaceInData(this.pageTitle, row) + "' ";
             var colorstyle = null, bgcolorstyle = null;
             if (colorstyle = filedName(field, "color")) {
-                tagstyle += "; color:" + colorstyle + ";"
+                tagstyle += "; color:" + EpiiAdmin.tools.replaceInData(colorstyle, row) + ";"
             }
             if (bgcolorstyle = filedName(field, "bgColor")) {
-                tagstyle += "; background-color:" + bgcolorstyle + ";"
+                tagstyle += "; background-color:" + EpiiAdmin.tools.replaceInData(bgcolorstyle, row) + ";"
             }
             var value = $('<' + tagname + '   class="' + tagclass + '" style="' + tagstyle + '"  ' + tagattr + '>' + obj + '</' + tagname + '>');
             var filed_class, filed_style, fileld_attr;

@@ -41,7 +41,7 @@ class Epiiadmin implements ILeftAndTopData
             ["id" => 2, "name" => "仪表盘1", "url" => url("demo/index/showhtml", ['html' => "simple"]), "icon" => " fa fa-circle-o", "pid" => 1, "badge" => "new"],
             ["id" => 3, "name" => "仪表盘2", "url" => url("demo/index/showhtml", ['html' => "data"]), "icon" => " fa fa-circle-o", "pid" => 1],
             ["id" => 4, "name" => "仪表盘3", "url" => "http://www.baidu.com", "icon" => " fa fa-circle-o", "pid" => 1],
-            ["id" => 5, "name" => "小组件", "url" => "http://www.baidu.com", "icon" => " fa fa-th", "pid" => 0, "badge" => "hot", "badge_class" => "badge badge-info"],
+            ["id" => 5, "name" => "小组件", "url" => "http://www.baidu.com", "icon" => " fa fa-th", "pid" => 0],
             ["id" => 10, "name" => "alert", "url" => url("demo/index/showhtml", ['html' => "alert"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["id" => 11, "name" => "confirm", "url" => url("demo/index/showhtml", ['html' => "confirm"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["id" => 12, "name" => "dialog", "url" => url("demo/index/showhtml", ['html' => "dialog"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
@@ -50,6 +50,7 @@ class Epiiadmin implements ILeftAndTopData
             ["id" => 15, "name" => "form", "url" => url("demo/index/showhtml", ['html' => "form"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["id" => 16, "name" => "table/list", "url" => url("demo/index/showhtml", ['html' => "table"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
             ["id" => 17, "name" => "city-picker", "url" => url("demo/index/showhtml", ['html' => "city"]), "icon" => " fa fa-circle-o", "pid" => 5, "badge" => "hot", "badge_class" => "badge badge-info"],
+
             ["header" => 1, "title" => "其它设置", "after_id" => 5],
             ["id" => 6, "name" => "开发文档", "url" => "http://docs.epii-admin.epii.cn", "icon" => " fa fa-circle-o text-danger", "pid" => 0],
 
@@ -77,4 +78,16 @@ class Epiiadmin implements ILeftAndTopData
         // TODO: Implement getLeftMenuTheme() method.
         return "light";
     }
+
+    public function getMenuActiveId()
+    {
+        return 9;
+    }
+
+    public function isMenuAllOpen()
+    {
+        // TODO: Implement isMenuAllOpen() method.
+        return false;
+    }
+
 }

@@ -1,18 +1,18 @@
 [
     {
         "name": "epii/epiiadmin-app",
-        "version": "v1.0.0",
-        "version_normalized": "1.0.0.0",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
         "source": {
             "type": "git",
             "url": "git://192.168.16.5/epii/epiiadmin-app.git",
-            "reference": "80d7fe2d74690320c89e095de87b3236433c8587"
+            "reference": "5620e1a923ac769a10d97c30edf7319f7d5cdcb4"
         },
         "require": {
-            "epii/epiiadmin-installer": "dev-master",
-            "epii/epiiadmin-lib": "dev-master"
+            "epii/epiiadmin-installer": "1.0.0",
+            "epii/epiiadmin-lib": "1.1.0"
         },
-        "time": "2018-07-25T07:47:30+00:00",
+        "time": "2018-11-07T06:54:52+00:00",
         "type": "epiiadmin-app",
         "installation-source": "source",
         "autoload": {
@@ -32,18 +32,17 @@
     },
     {
         "name": "epii/epiiadmin-demo",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "git://192.168.16.5/epii/epiiadmin-demo.git",
-            "reference": "35867b70383db7314185f5ed21456276a6b1cf67"
+            "reference": "011fa738463da6093defd5e3b5789059f38399ec"
         },
         "require": {
-            "epii/epiiadmin-installer": "dev-master",
-            "epii/epiiadmin-lib": "dev-master"
+            "epii/epiiadmin-installer": "1.0.0"
         },
-        "time": "2018-07-25T02:19:24+00:00",
+        "time": "2018-11-07T06:30:09+00:00",
         "type": "epiiadmin-demo",
         "installation-source": "source",
         "license": [
@@ -58,8 +57,8 @@
     },
     {
         "name": "epii/epiiadmin-installer",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
         "source": {
             "type": "git",
             "url": "git://192.168.16.5/epii/epiiadmin-installer.git",
@@ -94,14 +93,14 @@
     },
     {
         "name": "epii/epiiadmin-lib",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "git://192.168.16.5/epii/epiiadmin-lib.git",
-            "reference": "d9591f84030c66fd49f1d6f09564d5089e7b1074"
+            "reference": "4f86bc95f45b402a4cc5ade317c964ed048cda70"
         },
-        "time": "2018-07-25T07:41:47+00:00",
+        "time": "2018-11-07T06:20:26+00:00",
         "type": "source",
         "installation-source": "source",
         "autoload": {
@@ -126,12 +125,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/top-think/framework.git",
-            "reference": "b558299eb6f6f81eb39c24eb58838ba70b787944"
+            "reference": "67c3a06ece27b04d302fdd122e239f0bebd847a7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/top-think/framework/zipball/b558299eb6f6f81eb39c24eb58838ba70b787944",
-            "reference": "b558299eb6f6f81eb39c24eb58838ba70b787944",
+            "url": "https://api.github.com/repos/top-think/framework/zipball/67c3a06ece27b04d302fdd122e239f0bebd847a7",
+            "reference": "67c3a06ece27b04d302fdd122e239f0bebd847a7",
             "shasum": ""
         },
         "require": {
@@ -147,7 +146,7 @@
             "sebastian/phpcpd": "2.*",
             "squizlabs/php_codesniffer": "2.*"
         },
-        "time": "2018-07-14T05:54:00+00:00",
+        "time": "2018-11-07T04:36:28+00:00",
         "type": "think-framework",
         "installation-source": "source",
         "notification-url": "https://packagist.org/downloads/",
@@ -214,44 +213,5 @@
                 "email": "448901948@qq.com"
             }
         ]
-    },
-    {
-        "name": "xaboy/form-builder",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/xaboy/form-builder.git",
-            "reference": "3ce211b4513254b8cd5893840fd72f7600f92b3c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/xaboy/form-builder/zipball/3ce211b4513254b8cd5893840fd72f7600f92b3c",
-            "reference": "3ce211b4513254b8cd5893840fd72f7600f92b3c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0"
-        },
-        "time": "2018-07-03T02:48:10+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "FormBuilder\\": "./src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "xaboy",
-                "email": "xaboy2005@qq.com"
-            }
-        ],
-        "description": "PHP表单生成器，快速生成现代化的form表单。包含复选框、单选框、输入框、下拉选择框等元素以及,省市区三级联动,时间选择,日期选择,颜色选择,文件/图片上传等功能。",
-        "homepage": "https://github.com/xaboy/form-builder"
     }
 ]

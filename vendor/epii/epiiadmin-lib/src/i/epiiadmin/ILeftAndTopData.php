@@ -18,4 +18,7 @@ interface ILeftAndTopData
     public function getTopRightNavs();
     public function getTheme();
     public function getLeftMenuTheme();
+    public function getMenuActiveId();
+    public function isMenuAllOpen();
+
 }

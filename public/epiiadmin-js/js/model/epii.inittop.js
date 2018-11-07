@@ -1,10 +1,13 @@
 define(["adminlte", "addtabs"], function (AdminLTE, Addtabs) {
-
+    $.addtabs.addDom = function (dom) {
+        _click($(dom));
+        $.addtabs.drop();
+    };
 
     var $sidebar = $('.control-sidebar')
     var $container = $('<div />', {
         class: 'p-3'
-    })
+    });
 
     $sidebar.append($container)
 
@@ -13,22 +16,22 @@ define(["adminlte", "addtabs"], function (AdminLTE, Addtabs) {
         'bg-info',
         'bg-success',
         'bg-danger'
-    ]
+    ];
 
     var navbar_light_skins = [
         'bg-warning',
         'bg-white',
         'bg-gray-light'
-    ]
+    ];
 
     $container.append(
         '<h5>主题设置</h5><hr class="mb-2"/>'
         + '<h6>头部导航背景色</h6>'
-    )
+    );
 
     var $navbar_variants = $('<div />', {
         'class': 'd-flex'
-    })
+    });
     var navbar_all_colors = navbar_dark_skins.concat(navbar_light_skins)
     var $navbar_variants_colors = createSkinBlock(navbar_all_colors, function (e) {
         var color = $(this).data('color')
@@ -40,19 +43,19 @@ define(["adminlte", "addtabs"], function (AdminLTE, Addtabs) {
         })
 
         if (navbar_dark_skins.indexOf(color) > -1) {
-            $main_header.addClass('navbar-dark')
+            $main_header.addClass('navbar-dark');
             console.log('AND navbar-dark')
         } else {
-            console.log('AND navbar-light')
+            console.log('AND navbar-light');
             $main_header.addClass('navbar-light')
         }
 
         $main_header.addClass(color)
-    })
+    });
 
-    $navbar_variants.append($navbar_variants_colors)
+    $navbar_variants.append($navbar_variants_colors);
 
-    $container.append($navbar_variants)
+    $container.append($navbar_variants);
 
     var $checkbox_container = $('<div />', {
         'class': 'mb-4'
@@ -70,7 +73,7 @@ define(["adminlte", "addtabs"], function (AdminLTE, Addtabs) {
         }
     })
     $checkbox_container.append($navbar_border)
-    $checkbox_container.append('<span>Navbar border</span>')
+    $checkbox_container.append('<span>Navbar border</span>');
     $container.append($checkbox_container)
 
 
@@ -93,16 +96,16 @@ define(["adminlte", "addtabs"], function (AdminLTE, Addtabs) {
         'sidebar-light-info',
         'sidebar-light-danger',
         'sidebar-light-success'
-    ]
+    ];
 
-    $container.append('<h6>左侧黑色背景按钮颜色</h6>')
+    $container.append('<h6>左侧黑色背景按钮颜色</h6>');
     var $sidebar_variants = $('<div />', {
         'class': 'd-flex'
-    })
-    $container.append($sidebar_variants)
+    });
+    $container.append($sidebar_variants);
     $container.append(createSkinBlock(sidebar_colors, function () {
         var color = $(this).data('color')
-        var sidebar_class = 'sidebar-dark-' + color.replace('bg-', '')
+        var sidebar_class = 'sidebar-dark-' + color.replace('bg-', '');
         var $sidebar = $('.main-sidebar')
         sidebar_skins.map(function (skin) {
             $sidebar.removeClass(skin)
@@ -111,32 +114,32 @@ define(["adminlte", "addtabs"], function (AdminLTE, Addtabs) {
         $sidebar.addClass(sidebar_class)
     }))
 
-    $container.append('<h6>左侧白色背景按钮颜色</h6>')
+    $container.append('<h6>左侧白色背景按钮颜色</h6>');
     var $sidebar_variants = $('<div />', {
         'class': 'd-flex'
     })
     $container.append($sidebar_variants)
     $container.append(createSkinBlock(sidebar_colors, function () {
         var color = $(this).data('color')
-        var sidebar_class = 'sidebar-light-' + color.replace('bg-', '')
+        var sidebar_class = 'sidebar-light-' + color.replace('bg-', '');
         var $sidebar = $('.main-sidebar')
         sidebar_skins.map(function (skin) {
             $sidebar.removeClass(skin)
-        })
+        });
 
         $sidebar.addClass(sidebar_class)
-    }))
+    }));
 
     var logo_skins = navbar_all_colors
-    $container.append('<h6>Logo区背景色</h6>')
+    $container.append('<h6>Logo区背景色</h6>');
     var $logo_variants = $('<div />', {
         'class': 'd-flex'
     })
-    $container.append($logo_variants)
+    $container.append($logo_variants);
     var $clear_btn = $('<a />', {
         href: 'javascript:void(0)'
     }).text('clear').on('click', function () {
-        var $logo = $('.brand-link')
+        var $logo = $('.brand-link');
         logo_skins.map(function (skin) {
             $logo.removeClass(skin)
         })
@@ -199,9 +202,15 @@ define(["adminlte", "addtabs"], function (AdminLTE, Addtabs) {
 
         $(this).addClass("active");
         $.addtabs.addDom(this);
-
-
     });
+
+    $(".sidebar").on('click',".has-treeview", function (e) {
+
+        $(this).siblings().removeClass("menu-open");
+        $(this).addClass("menu-open");
+    });
+
+
 
     setTimeout(function () {
         $(".sidebar a.active").eq(0).trigger("click");
@@ -238,7 +247,7 @@ define(["adminlte", "addtabs"], function (AdminLTE, Addtabs) {
 
 
     $("body").on("click","a[data-widget='control-reload']",function (e) {
-        console.log($.addtabs.current_id);
+
         $.addtabs.reloadById($.addtabs.current_id);
     });
 

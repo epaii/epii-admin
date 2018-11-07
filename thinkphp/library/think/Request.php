@@ -522,6 +522,18 @@ class Request
     }
 
     /**
+     * 设置当前完整URL 包括QUERY_STRING
+     * @access public
+     * @param  string $url URL
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+        return $this;
+    }
+
+    /**
      * 获取当前完整URL 包括QUERY_STRING
      * @access public
      * @param  bool $complete 是否包含域名
@@ -544,6 +556,18 @@ class Request
         }
 
         return $complete ? $this->domain() . $this->url : $this->url;
+    }
+
+    /**
+     * 设置当前完整URL 不包括QUERY_STRING
+     * @access public
+     * @param  string $url URL
+     * @return $this
+     */
+    public function setBaseUrl($url)
+    {
+        $this->baseUrl = $url;
+        return $this;
     }
 
     /**
@@ -1150,12 +1174,12 @@ class Request
 
         $files = $this->file;
         if (!empty($files)) {
-            // 处理上传文件
-            $array = $this->dealUploadFile($files);
-
             if (strpos($name, '.')) {
                 list($name, $sub) = explode('.', $name);
             }
+
+            // 处理上传文件
+            $array = $this->dealUploadFile($files, $name);
 
             if ('' === $name) {
                 // 获取全部文件
@@ -1170,18 +1194,24 @@ class Request
         return;
     }
 
-    protected function dealUploadFile($files)
+    protected function dealUploadFile($files, $name)
     {
         $array = [];
         foreach ($files as $key => $file) {
-            if (is_array($file['name'])) {
+            if ($file instanceof File) {
+                $array[$key] = $file;
+            } elseif (is_array($file['name'])) {
                 $item  = [];
                 $keys  = array_keys($file);
                 $count = count($file['name']);
 
                 for ($i = 0; $i < $count; $i++) {
-                    if (empty($file['tmp_name'][$i]) || !is_file($file['tmp_name'][$i])) {
-                        continue;
+                    if ($file['error'][$i] > 0) {
+                        if ($name == $key) {
+                            $this->throwUploadFileError($file['error'][$i]);
+                        } else {
+                            continue;
+                        }
                     }
 
                     $temp['key'] = $key;
@@ -1195,19 +1225,35 @@ class Request
 
                 $array[$key] = $item;
             } else {
-                if ($file instanceof File) {
-                    $array[$key] = $file;
-                } else {
-                    if (empty($file['tmp_name']) || !is_file($file['tmp_name'])) {
+                if ($file['error'] > 0) {
+                    if ($key == $name) {
+                        $this->throwUploadFileError($file['error']);
+                    } else {
                         continue;
                     }
-
-                    $array[$key] = (new File($file['tmp_name']))->setUploadInfo($file);
                 }
+
+                $array[$key] = (new File($file['tmp_name']))->setUploadInfo($file);
             }
         }
 
         return $array;
+    }
+
+    protected function throwUploadFileError($error)
+    {
+        static $fileUploadErrors = [
+            1 => 'upload File size exceeds the maximum value',
+            2 => 'upload File size exceeds the maximum value',
+            3 => 'only the portion of file is uploaded',
+            4 => 'no file to uploaded',
+            6 => 'upload temp dir not found',
+            7 => 'file write error',
+        ];
+
+        $msg = $fileUploadErrors[$error];
+
+        throw new Exception($msg);
     }
 
     /**
@@ -1576,7 +1622,9 @@ class Request
             return $result;
         }
 
-        return $this->param($this->config['var_ajax']) ? true : $result;
+        $result           = $this->param($this->config['var_ajax']) ? true : $result;
+        $this->mergeParam = false;
+        return $result;
     }
 
     /**
@@ -1593,7 +1641,9 @@ class Request
             return $result;
         }
 
-        return $this->param($this->config['var_pjax']) ? true : $result;
+        $result           = $this->param($this->config['var_pjax']) ? true : $result;
+        $this->mergeParam = false;
+        return $result;
     }
 
     /**
@@ -2166,5 +2216,13 @@ class Request
     public function __isset($name)
     {
         return isset($this->param[$name]);
+    }
+
+    public function __debugInfo()
+    {
+        $data = get_object_vars($this);
+        unset($data['dispatch'], $data['config']);
+
+        return $data;
     }
 }
