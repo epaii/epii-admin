@@ -30,10 +30,17 @@ define(['bootstrap-table', "jquery"], function (bTable, $) {
                 pagination: true,
                 sidePagination: EpiiAdmin.getTrueValue($(this).data("side-pagination"), "server"),
                 pageSize: EpiiAdmin.getTrueValue($(this).data("page-size"), 30)
+
             });
         });
+
         return out;
     }
+
+
+    out.filedclick = function (json,fun,index) {
+        window[fun](JSON.parse(json),index);
+    };
 
     out.refreshTable = function (tableid) {
         getTable(tableid).bootstrapTable("refresh");
@@ -68,12 +75,11 @@ define(['bootstrap-table', "jquery"], function (bTable, $) {
             name = $(this).data("getName");
             this.urlArgs = name + "=" + selectids.join(",");
         } else {
-            if (!$(this).attr("url"))
-            {
-                $(this).attr("url",$(this).attr("href") || $(this).attr("data-url"));
+            if (!$(this).attr("url")) {
+                $(this).attr("url", $(this).attr("href") || $(this).attr("data-url"));
             }
-           if( $(this).attr("href")) $(this).attr("href", EpiiAdmin.tools.replaceInData($(this).attr("url"), {ids: selectids}));
-            if( $(this).attr("data-url"))  $(this).attr("data-url", $(this).attr("href"));
+            if ($(this).attr("href")) $(this).attr("href", EpiiAdmin.tools.replaceInData($(this).attr("url"), {ids: selectids}));
+            if ($(this).attr("data-url")) $(this).attr("data-url", $(this).attr("href"));
         }
 
 
@@ -98,6 +104,7 @@ define(['bootstrap-table', "jquery"], function (bTable, $) {
     };
 
     function formatter(value, row, index, field) {
+
         return jqueryObject.apply(this, arguments).prop("outerHTML");
 
 
@@ -120,17 +127,20 @@ define(['bootstrap-table', "jquery"], function (bTable, $) {
             if (this.url) tagattr += " href='" + EpiiAdmin.tools.replaceInData(this.url, row) + "' ";
             if (this.pageTitle) tagattr += " data-title='" + EpiiAdmin.tools.replaceInData(this.pageTitle, row) + "' ";
             var colorstyle = null, bgcolorstyle = null;
-            if (colorstyle = filedName(field, "color")) {
+            if (colorstyle = row[filedName(field, "color")]) {
                 tagstyle += "; color:" + EpiiAdmin.tools.replaceInData(colorstyle, row) + ";"
             }
-            if (bgcolorstyle = filedName(field, "bgColor")) {
+            if (bgcolorstyle = row[filedName(field, "bgColor")]) {
                 tagstyle += "; background-color:" + EpiiAdmin.tools.replaceInData(bgcolorstyle, row) + ";"
             }
-            var value = $('<' + tagname + '   class="' + tagclass + '" style="' + tagstyle + '"  ' + tagattr + '>' + obj + '</' + tagname + '>');
+            var value = $('<' + tagname + '   class="text-align:center' + tagclass + '" style="' + tagstyle + '"  ' + tagattr + '>' + obj + '</' + tagname + '>');
             var filed_class, filed_style, fileld_attr;
             if (filed_class = row[filedName(field, "class")]) {
                 value.addClass(filed_class);
             }
+
+
+
             if (filed_style = row[filedName(field, "style")]) {
 
                 value.css(filed_style);
@@ -138,6 +148,13 @@ define(['bootstrap-table', "jquery"], function (bTable, $) {
             if (fileld_attr = row[filedName(field, "attr")]) {
                 value.attr(fileld_attr);
             }
+
+            if (this["click"]) {
+                value.attr("onclick","window.epii_table.filedclick('"+JSON.stringify(row)+"','"+this["click"]+"','"+index+"')");
+
+            }
+
+
             return value;
         }
     };
@@ -145,6 +162,8 @@ define(['bootstrap-table', "jquery"], function (bTable, $) {
     var filedName = function (filed, name) {
         return filed + "_" + name;
     };
+
+
     formatter.bgColor = function (value, row, index, field) {
         value = jqueryObject.apply(this, arguments);
         value.css({"backgroundColor": row[filedName(field, "bg_color")]});
@@ -156,10 +175,30 @@ define(['bootstrap-table', "jquery"], function (bTable, $) {
         return value.prop("outerHTML");
     };
     formatter.span = function (value, row, index, field) {
+
+
+        return formatter.apply(this, arguments);
+
+    };
+
+    formatter.switch = function (value, row, index, field) {
+
+
+        if (value - 0 === 0) {
+            value = "<i class=\"fa fa-toggle-off\" aria-hidden=\"true\" style='color: red;font-size: 30px'></i>";
+        } else {
+            value = "<i class=\"fa fa-toggle-on\" aria-hidden=\"true\" style='color: green;font-size: 30px'></i>";
+        }
+
+        arguments[0] = value;
+
+
+
         return formatter.apply(this, arguments);
 
 
     };
+
     formatter.btns = function (value, row, index, field) {
         var btns_args = arguments;
 
