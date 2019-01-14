@@ -1,0 +1,45 @@
+.epii .form-group {
+
+    clear: both;
+
+    display: flex;
+}
+
+.epii label {
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.epii label {
+    float: left;
+    width: 20%;
+    text-align: right;
+}
+
+.epii input, .epii select,.epii textarea,.epii .epii-filed {
+    float: left;
+    width: 70%;
+    text-align: left;
+}
+
+.epii input.error, .epii select.error,.epii textarea.error,.epii .epii-filed  .error {
+    width: 40%;
+
+}
+
+.form-footer {
+    width: 90%;
+    text-align: right;
+}
+
+.epii label.error {
+    float: left;
+    width: 30%;
+
+    display: inline;
+    text-align: left;
+
+}
+.form-group label.error{
+    color: red;
+}
