@@ -12,8 +12,9 @@
 
 .epii label {
     float: left;
-    width: 20%;
+
     text-align: right;
+    width: auto;min-width: 20%
 }
 
 .epii input, .epii select,.epii textarea,.epii .epii-filed {
