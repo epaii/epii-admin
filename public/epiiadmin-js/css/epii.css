@@ -5,25 +5,25 @@
     display: flex;
 }
 
-.epii label {
+.epii .form-group label {
     margin: 5px;
     vertical-align: middle;
 }
 
-.epii label {
+.epii .form-group label {
     float: left;
 
     text-align: right;
     width: auto;min-width: 20%
 }
 
-.epii input, .epii select,.epii textarea,.epii .epii-filed {
+.epii .form-group input, .epii .form-group select,.epii .form-group textarea,.epii .form-group .epii-filed {
     float: left;
     width: 70%;
     text-align: left;
 }
 
-.epii input.error, .epii select.error,.epii textarea.error,.epii .epii-filed  .error {
+.epii .form-group input.error, .epii  .form-group select.error,.epii  .form-group textarea.error,.epii  .form-group .epii-filed  .error {
     width: 40%;
 
 }
@@ -33,7 +33,7 @@
     text-align: right;
 }
 
-.epii label.error {
+.epii  .form-group label.error {
     float: left;
     width: 30%;
 
@@ -41,6 +41,6 @@
     text-align: left;
 
 }
-.form-group label.error{
+.form-group  label.error{
     color: red;
 }
