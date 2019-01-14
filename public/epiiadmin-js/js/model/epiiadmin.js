@@ -115,7 +115,13 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
             intop = intop ? intop : epiiAdmin.tools.query("intop", url);
 
             title = title ? title : epiiAdmin.tools.query("title", url);
-            console.log("rlr0:" + epiiAdmin.this_window.this_window_id);
+
+            var offset = epiiAdmin.tools.query("_offset", url);
+            if (!offset)
+            {
+                offset = "50px";
+            }
+
             var mylayer = epiiAdmin.tools.getLayer(intop);
             var index = mylayer.open({
                 type: 2,
@@ -126,6 +132,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
                 content: url,
                 mylayer: mylayer,
                 in_window: epiiAdmin.this_window,
+                offset:offset,
                 success: function (layero, index) {
                     var openwindow = $(layero).find("iframe")[0].contentWindow;
                     var close_wind_id = openwindow.Args.window_id;
