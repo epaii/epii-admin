@@ -2,7 +2,7 @@
  * Created by mrren on 2018/6/26.
  */
 //环境变量，从应用程序传递过来
-console.log(Args);
+//console.log(Args);
 define("window", window);
 define("args", Args);
 
@@ -20,16 +20,16 @@ require.config({
         "form": "model/epii.form",
         "table": "model/epii.table",
         "bootstrap-table": Args.pluginsUrl + "bootstrap-table/bootstrap-table" + Args.min,
-        "bootstrap-table-lang":Args.pluginsUrl + 'bootstrap-table/bootstrap-table-zh-CN'+ Args.min,
+        "bootstrap-table-lang": Args.pluginsUrl + 'bootstrap-table/bootstrap-table-zh-CN' + Args.min,
         "inittop": "model/epii.inittop",
         "eval": "model/epii.eval",
         'city-picker': "model/epii.city.picker",
-        'city-picker-core': Args.pluginsUrl +'city-picker/dist/js/city-picker'+ Args.min,
-        'bootstrap-select':  Args.pluginsUrl + 'bootstrap-select/dist/js/bootstrap-select'+ Args.min,
-        'bootstrap-select-lang': Args.pluginsUrl +'bootstrap-select/dist/js/i18n/defaults-zh_CN',
-        "epii-select":"model/epii.select",
-        "bootstrap-suggest":Args.pluginsUrl +'bootstrap-suggest/dist/bootstrap-suggest'+ Args.min,
-        "input-search":"model/epii.suggest"
+        'city-picker-core': Args.pluginsUrl + 'city-picker/dist/js/city-picker' + Args.min,
+        'bootstrap-select': Args.pluginsUrl + 'bootstrap-select/dist/js/bootstrap-select' + Args.min,
+        'bootstrap-select-lang': Args.pluginsUrl + 'bootstrap-select/dist/js/i18n/defaults-zh_CN',
+        "epii-select": "model/epii.select",
+        "bootstrap-suggest": Args.pluginsUrl + 'bootstrap-suggest/dist/bootstrap-suggest' + Args.min,
+        "input-search": "model/epii.suggest"
     },
     shim: {
         'bootstrap': ['jquery'],
@@ -41,56 +41,71 @@ require.config({
         "bootstrap-table": {
             deps: [
                 'bootstrap',
-                 "css!"+Args.pluginsUrl + 'bootstrap-table/bootstrap-table.min.css'
+                "css!" + Args.pluginsUrl + 'bootstrap-table/bootstrap-table.min.css'
             ],
             exports: '$.fn.bootstrapTable'
         },
-        "bootstrap-table-lang":["bootstrap-table"],
+        "bootstrap-table-lang": ["bootstrap-table"],
         "table": ["bootstrap-table-lang"],
         "inittop": ["css!model/epii.inittop.css"],
-        "city-picker":['city-picker-core'],
-        "city-picker-core": [Args.pluginsUrl +'city-picker/dist/js/city-picker.data',"css!"+Args.pluginsUrl +"city-picker/dist/css/city-picker.css"],
-        'bootstrap-select': ["jquery","bootstrap",'css!'+Args.pluginsUrl +'bootstrap-select/dist/css/bootstrap-select.min.css' ],
+        "city-picker": ['city-picker-core'],
+        "city-picker-core": [Args.pluginsUrl + 'city-picker/dist/js/city-picker.data', "css!" + Args.pluginsUrl + "city-picker/dist/css/city-picker.css"],
+        'bootstrap-select': ["jquery", "bootstrap", 'css!' + Args.pluginsUrl + 'bootstrap-select/dist/css/bootstrap-select.min.css'],
         'bootstrap-select-lang': ['bootstrap-select']
 
     },
     map: {
         '*': {
-            'css': Args.pluginsUrl +'/require-css/css.min'
+            'css': Args.pluginsUrl + '/require-css/css.min'
         }
     }
 
 });
 
 
-require(["epiiadminJs", "args"], function (admin, Args) {
+if (Args.require_config_file) {
+    require([Args.require_config_file], function () {
+        require_run();
+    });
+} else {
+    require_run();
+}
 
 
-    var initfunctions;
-    if (initfunctions = window[Args.epiiInitFunctionsName]) {
-        initfunctions.forEach(function (call) {
-            call.call(null, Args);
-        });
-    }
-    
-    function apprun() {
-        if (Args.appName) {
-            require([Args.appUrl + Args.appName+(Args.appUrl.indexOf("http")===0?".js":"")], function (app) {
-                if (app && app.hasOwnProperty("run")) {
-                    app.run(Args);
-                }
-            })
+function require_run() {
+
+    require(["epiiadminJs", "args"], function (admin, Args) {
+
+
+        var initfunctions;
+        if (initfunctions = window[Args.epiiInitFunctionsName]) {
+            initfunctions.forEach(function (call) {
+                call.call(null, Args);
+            });
         }
-    }
-    if (Args.data.isTop) {
-        require(["inittop"], function () {
+
+        function apprun() {
+            if (Args.appName) {
+                require([Args.appUrl + Args.appName + (Args.appUrl.indexOf("http") === 0 ? ".js" : "")], function (app) {
+                    if (app && app.hasOwnProperty("run")) {
+                        app.run(Args);
+                    }
+                })
+            }
+        }
+
+        if (Args.data.isTop) {
+            require(["inittop"], function () {
+                apprun();
+            });
+
+        } else {
             apprun();
-        });
-
-    }else{
-        apprun();
-    }
+        }
 
 
-});
+    });
+
+}
+
 
