@@ -44,3 +44,9 @@
 .form-group  label.error{
     color: red;
 }
+
+
+.epii .form-group input[type=radio],.epii .form-group input[type=checkbox]{
+    float: none!important;
+    width: auto!important;
+}
