@@ -151,6 +151,7 @@ define(["plupload", "jquery"], function (Plupload, $) {
                     if (img_id && !$(button).data("multiple")) {
                         var img = $("#" + img_id);
                         img.attr("src", response.url);
+                        if (img_style) 
                         img.attr("style",img_style);
                         img.show();
 
