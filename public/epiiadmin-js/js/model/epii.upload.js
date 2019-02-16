@@ -12,7 +12,7 @@ define(["plupload", "jquery"], function (Plupload, $) {
 
         var d_config = {
             maxsize: "2048kb",
-            mimetype: "jpg,gif,png",
+            mimetype: "jpg,gif,png,jpeg",
             url: (Args.pluginsData && Args.pluginsData.upload_url) ? Args.pluginsData.upload_url : ""
 
         };
@@ -152,9 +152,11 @@ define(["plupload", "jquery"], function (Plupload, $) {
                         var img = $("#" + img_id);
                         img.attr("src", response.url);
                         img.attr("style",img_style);
+                        img.show();
 
                     }else if (imgs_ul_id &&  $(button).data("multiple")) {
                         $("#"+imgs_ul_id).append("<img src=\""+response.url+"\" style='padding:6px ;border:0.5px solid #dcdcdc;margin: 0px 3px; "+img_style+"'>");
+                        $("#"+imgs_ul_id).show();
 
                     }
 
