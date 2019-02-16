@@ -29,7 +29,9 @@ require.config({
         'bootstrap-select-lang': Args.pluginsUrl + 'bootstrap-select/dist/js/i18n/defaults-zh_CN',
         "epii-select": "model/epii.select",
         "bootstrap-suggest": Args.pluginsUrl + 'bootstrap-suggest/dist/bootstrap-suggest' + Args.min,
-        "input-search": "model/epii.suggest"
+        "input-search": "model/epii.suggest",
+        "plupload": Args.pluginsUrl + 'plupload/js/plupload.full.min',
+        "epii-upload": "model/epii.upload"
     },
     shim: {
         'bootstrap': ['jquery'],
@@ -51,7 +53,8 @@ require.config({
         "city-picker": ['city-picker-core'],
         "city-picker-core": [Args.pluginsUrl + 'city-picker/dist/js/city-picker.data', "css!" + Args.pluginsUrl + "city-picker/dist/css/city-picker.css"],
         'bootstrap-select': ["jquery", "bootstrap", 'css!' + Args.pluginsUrl + 'bootstrap-select/dist/css/bootstrap-select.min.css'],
-        'bootstrap-select-lang': ['bootstrap-select']
+        'bootstrap-select-lang': ['bootstrap-select'],
+        "epii-upload":["jquery","plupload"]
 
     },
     map: {
