@@ -44,7 +44,7 @@ define(["plupload", "jquery"], function (Plupload, $) {
 
         var img_id = $(that).data("img-id") ? $(that).data("img-id") : "";
 
-        var imgs_ul_id = $(that).data("imgs-ul-id") ? $(that).data("imgs-ul-id") : "";
+        var imgs_ul_id = $(that).data("imgs-id") ? $(that).data("imgs-id") : "";
         var img_style = $(that).data("img-style") ? $(that).data("img-style") : "";
 
 
@@ -151,7 +151,7 @@ define(["plupload", "jquery"], function (Plupload, $) {
                     if (img_id && !$(button).data("multiple")) {
                         var img = $("#" + img_id);
                         img.attr("src", response.url);
-                        if (img_style) 
+                        if (img_style)
                         img.attr("style",img_style);
                         img.show();
 
