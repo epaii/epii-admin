@@ -392,7 +392,7 @@ define(['args', "jquery", "layer", "eval"], function (Args, $, layer, epii_eval)
                 var $a = $(dom);
                 var url = epiiAdmin.getTrueValue($a.attr("href"), $a.data("url"));
                 if (dom.urlArgs) {
-                    if (url.indexOf("?") > 0) {
+                    if (url.indexOf("?") >= 0) {
                         url = url + "&" + dom.urlArgs;
                     } else {
                         url = url + "?" + dom.urlArgs;
