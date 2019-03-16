@@ -51,11 +51,11 @@
     width: auto!important;
 }
 
-.epii  .card-body {
+.card-body {
     padding: 0.5rem 1.25rem!important;
 
 }
-.epii  .card-header {
+ .card-header {
     padding: 0.6rem 1.25rem!important;
 
 }
