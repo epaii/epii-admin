@@ -1,0 +1,19 @@
+{
+  "name": "epii/admin-ui-login",
+  "description": "基于epii/admin-ui 的登录模块",
+  "authors": [
+    {
+      "name": "MrRen Epii",
+      "email": "543169072@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "epii\\ui\\login\\": "src/"
+    }
+  }
+}

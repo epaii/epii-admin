@@ -1,0 +1,19 @@
+{
+    "name": "epii/tiny-app",
+    "description": "一个超级简单的php app基础，可用于简单的api开发,cli app 开发。",
+    "authors": [
+        {
+            "name": "MrRen Epii",
+            "email":"543169072@qq.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "epii\\server\\": "src/"
+        }
+    }
+}

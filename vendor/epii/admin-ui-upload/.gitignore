@@ -2,7 +2,5 @@
 /.vscode
 *.log
 *.DS_Store
+test
 gitpush.sh
-gitpush.bat
-azure.txt
-runtime

@@ -1,0 +1,25 @@
+{
+  "name": "epii/tiny-app-plus",
+  "description": "epii/tiny-app 的增强版本，融入模板引擎，及ui",
+  "authors": [
+    {
+      "name": "MrRen Epii",
+      "email": "543169072@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0",
+    "epii/tiny-app": ">=0.0.1",
+    "epii/admin-ui": ">=0.0.1",
+    "epii/template-engine": ">=0.0.1",
+    "epii/api-result": ">=0.0.1",
+    "epii/cache": ">=0.0.1",
+    "topthink/think-orm": "V1.2.17"
+  },
+  "autoload": {
+    "psr-4": {
+      "epii\\app\\": "src/"
+    }
+  }
+}

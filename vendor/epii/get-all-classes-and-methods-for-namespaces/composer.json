@@ -1,0 +1,19 @@
+{
+  "name": "epii/get-all-classes-and-methods-for-namespaces",
+  "description": "获取某命名空间下的所有类和方法",
+  "authors": [
+    {
+      "name": "MrRen Epii",
+      "email": "543169072@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "epii\\tools\\classes\\": "src/"
+    }
+  }
+}

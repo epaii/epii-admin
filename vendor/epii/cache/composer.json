@@ -1,0 +1,19 @@
+{
+  "name": "epii/cache",
+  "description": "一个超级简单的php cache 管理器。",
+  "authors": [
+    {
+      "name": "MrRen Epii",
+      "email": "543169072@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "epii\\cache\\": "src/"
+    }
+  }
+}

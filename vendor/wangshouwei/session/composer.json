@@ -1,0 +1,19 @@
+{
+  "name": "wangshouwei/session",
+  "description": "。",
+  "authors": [
+    {
+      "name": "MrRen Epii",
+      "email": "543169072@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "wangshouwei\\session\\": "src/"
+    }
+  }
+}

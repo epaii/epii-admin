@@ -1,0 +1,20 @@
+{
+  "name": "epii/admin-ui",
+  "description": "EpiiAdmin php开源交互性管理后台框架,基于Thinkphp5.1+Adminlte3.0+Require.js, 让复杂的交互变得更简单！Phper快速搭建交互性平台的开发框架",
+  "authors": [
+    {
+      "name": "MrRen Epii",
+      "email": "543169072@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "epii\\admin\\ui\\": "src/"
+
+    }
+  }
+}

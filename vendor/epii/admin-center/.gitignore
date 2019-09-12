@@ -1,0 +1,12 @@
+/.idea
+/.vscode
+*.log
+*.DS_Store
+gitpush.sh
+composer.lock
+vendor
+runtime
+dist_test
+test1
+test2
+test

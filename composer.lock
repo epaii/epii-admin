@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "epii/admin-center",
-            "version": "0.3.0",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/epaii/epii-admin-project-composer.git",
-                "reference": "380514bb2fa00515c6cbc70968ccafa6fe0006de"
+                "reference": "21fbc4c334cce5b4a9e6fc86fbb3d5eff1189cf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/epaii/epii-admin-project-composer/zipball/380514bb2fa00515c6cbc70968ccafa6fe0006de",
-                "reference": "380514bb2fa00515c6cbc70968ccafa6fe0006de",
+                "url": "https://api.github.com/repos/epaii/epii-admin-project-composer/zipball/21fbc4c334cce5b4a9e6fc86fbb3d5eff1189cf7",
+                "reference": "21fbc4c334cce5b4a9e6fc86fbb3d5eff1189cf7",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -51,7 +51,7 @@
                 }
             ],
             "description": "通用后台管理中心，一件安装，全界面可定制！",
-            "time": "2019-09-11T01:54:32+00:00"
+            "time": "2019-09-12T05:26:49+00:00"
         },
         {
             "name": "epii/admin-ui",

@@ -3,6 +3,5 @@
 *.log
 *.DS_Store
 gitpush.sh
-gitpush.bat
-azure.txt
-runtime
+composer.lock
+vendor
