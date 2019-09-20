@@ -41,11 +41,13 @@ class install extends _controller
 
         if ($_POST) {
             $config_dir = Tools::getVendorDir() . "/../config";
-
+            \epii\server\Tools::mkdir($config_dir);
             if (!is_dir($config_dir)) {
-                if (!mkdir($config_dir, 0777, true)) {
-                    return JsCmd::make()->addCmd(Alert::make()->msg("请确保有创建文件夹" . $config_dir . "的权限")->onOk(null))->run();
-                }
+                return JsCmd::make()->addCmd(Alert::make()->msg("请确保有创建文件夹" . $config_dir . "的权限")->onOk(null))->run();
+            }
+
+            if (!@file_put_contents($config_file = $config_dir . "/db.conf.php", 1)) {
+                return JsCmd::alert("没有权限写文件" . $config_file);
             }
 
 
@@ -53,14 +55,14 @@ class install extends _controller
             $link = mysqli_connect($config["hostname"], $config["username"], $config["password"], '', $config["hostport"]);
 
             if (!$link) {
-                return JsCmd::make()->addCmd(Alert::make()->msg("数据库设置错误，检查账号或密码是否正确"))->run();
+                return JsCmd::alert("数据库设置错误，检查账号或密码是否正确");
 
             }
 
 
             $db_has = mysqli_query($link, "use " . $config["database"]);
             if (!$db_has) {
-                return JsCmd::make()->addCmd(Alert::make()->msg("数据库不存在"))->run();
+                return JsCmd::alert("数据库不存在");
             }
 
             $sql = file_get_contents(__DIR__ . "/../config/install.sql");
@@ -68,7 +70,8 @@ class install extends _controller
             $sql = str_replace("`epii_", "`" . $config["prefix"], $sql);
 
             $_arr = explode(';', $sql);
-
+            mysqli_query($link, "SET AUTOCOMMIT=0");
+            mysqli_begin_transaction($link);
             foreach ($_arr as $_value) {
                 if ($_value = trim($_value)) {
                     $query_info = mysqli_query($link, $_value);
@@ -76,31 +79,36 @@ class install extends _controller
 
                     if ($query_info === false) {
 
-                        return JsCmd::make()->addCmd(Alert::make()->msg("安装失败"))->run();
+                        mysqli_query($link, "ROLLBACK");      // 判断执行失败时回滚
+                        return JsCmd::alert("安装失败，请重试,mysql:" . mysqli_errno($link));
                     }
                 }
 
             }
 
-            $query_info =   mysqli_query($link, "update `".$config["prefix"]."admin` set username='".$config["admin_username"]."', password='".md5($config["admin_password"])."'  where id=1");
-
+            $query_info = mysqli_query($link, "update `" . $config["prefix"] . "admin` set username='" . $config["admin_username"] . "', password='" . md5($config["admin_password"]) . "'  where id=1");
 
 
             if ($query_info === false) {
-
+                mysqli_query($link, "ROLLBACK");      // 判断执行失败时回滚
                 return JsCmd::make()->addCmd(Alert::make()->msg("安装失败,默认账号密码失败！"))->run();
             }
 
 
-            mysqli_commit($link);
-
-
-            mysqli_close($link);
             unset($config["admin_username"]);
             unset($config["admin_password"]);
-            $config["type"]="mysql";
-            file_put_contents(Tools::getVendorDir() . "/../config/db.conf.php", "<?php return  " . var_export($config, true) . " ;");
-            return JsCmd::alertCloseRefresh("安装成功");
+            $config["type"] = "mysql";
+            if(file_put_contents(Tools::getVendorDir() . "/../config/db.conf.php", "<?php return  " . var_export($config, true) . " ;"))
+            {
+                mysqli_commit($link);
+                mysqli_close($link);
+                return JsCmd::alertCloseRefresh("安装成功");
+            }else{
+                mysqli_query($link, "ROLLBACK");
+                mysqli_close($link);
+                return JsCmd::alert("安装失败");
+            }
+
         } else {
             $this->adminUiDisplay("install/config", "安装程序");
         }

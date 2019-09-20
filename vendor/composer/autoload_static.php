@@ -30,6 +30,7 @@ class ComposerStaticInitfacf9eacf3e04d8dfdb102fa45c80302
             'epii\\tools\\classes\\' => 19,
             'epii\\template\\' => 14,
             'epii\\server\\' => 12,
+            'epii\\orm\\' => 9,
             'epii\\cache\\' => 11,
             'epii\\app\\' => 9,
             'epii\\api\\result\\' => 16,
@@ -49,7 +50,8 @@ class ComposerStaticInitfacf9eacf3e04d8dfdb102fa45c80302
         ),
         'think\\' => 
         array (
-            0 => __DIR__ . '/..' . '/topthink/think-orm/src',
+            0 => __DIR__ . '/..' . '/epii/think-orm/src/think',
+            1 => __DIR__ . '/..' . '/topthink/think-orm/src',
         ),
         'init\\' => 
         array (
@@ -74,6 +76,10 @@ class ComposerStaticInitfacf9eacf3e04d8dfdb102fa45c80302
         'epii\\server\\' => 
         array (
             0 => __DIR__ . '/..' . '/epii/tiny-app/src',
+        ),
+        'epii\\orm\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/epii/think-orm/src',
         ),
         'epii\\cache\\' => 
         array (

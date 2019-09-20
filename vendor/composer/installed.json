@@ -1,17 +1,17 @@
 [
     {
         "name": "epii/admin-center",
-        "version": "0.3.1",
-        "version_normalized": "0.3.1.0",
+        "version": "0.3.4",
+        "version_normalized": "0.3.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-admin-project-composer.git",
-            "reference": "21fbc4c334cce5b4a9e6fc86fbb3d5eff1189cf7"
+            "reference": "91900eee07d9f5db8125f29edea5d3c8bd029241"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-admin-project-composer/zipball/21fbc4c334cce5b4a9e6fc86fbb3d5eff1189cf7",
-            "reference": "21fbc4c334cce5b4a9e6fc86fbb3d5eff1189cf7",
+            "url": "https://api.github.com/repos/epaii/epii-admin-project-composer/zipball/91900eee07d9f5db8125f29edea5d3c8bd029241",
+            "reference": "91900eee07d9f5db8125f29edea5d3c8bd029241",
             "shasum": "",
             "mirrors": [
                 {
@@ -28,7 +28,7 @@
             "php": ">=7.0",
             "wangshouwei/session": ">=0.0.1"
         },
-        "time": "2019-09-12T05:26:49+00:00",
+        "time": "2019-09-20T08:47:31+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -50,17 +50,17 @@
     },
     {
         "name": "epii/admin-ui",
-        "version": "0.1.4",
-        "version_normalized": "0.1.4.0",
+        "version": "0.1.5",
+        "version_normalized": "0.1.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-admin-ui.git",
-            "reference": "0aed55a2cf98c40f676fd02748959595848029ff"
+            "reference": "09e594000468a6fb19e6e894a6649944186ace4c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-admin-ui/zipball/0aed55a2cf98c40f676fd02748959595848029ff",
-            "reference": "0aed55a2cf98c40f676fd02748959595848029ff",
+            "url": "https://api.github.com/repos/epaii/epii-admin-ui/zipball/09e594000468a6fb19e6e894a6649944186ace4c",
+            "reference": "09e594000468a6fb19e6e894a6649944186ace4c",
             "shasum": "",
             "mirrors": [
                 {
@@ -72,7 +72,7 @@
         "require": {
             "php": ">=5.6"
         },
-        "time": "2019-03-16T08:46:59+00:00",
+        "time": "2019-09-05T08:12:17+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -357,6 +357,52 @@
         "description": "一个超级简单的php template engine，可扩展其它模板引擎。"
     },
     {
+        "name": "epii/think-orm",
+        "version": "0.0.1",
+        "version_normalized": "0.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/epaii/epii-think-orm.git",
+            "reference": "ad8aaf9d3da8e393772c6efc27cb8f3481ed6c9c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/epaii/epii-think-orm/zipball/ad8aaf9d3da8e393772c6efc27cb8f3481ed6c9c",
+            "reference": "ad8aaf9d3da8e393772c6efc27cb8f3481ed6c9c",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=7.1",
+            "topthink/think-orm": "V1.2.17"
+        },
+        "time": "2019-09-20T01:01:51+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "epii\\orm\\": "src/",
+                "think\\": "src/think/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "MrRen Epii",
+                "email": "543169072@qq.com"
+            }
+        ],
+        "description": "think-orm 的兼容性处理,及常用方法"
+    },
+    {
         "name": "epii/tiny-app",
         "version": "2.3.8",
         "version_normalized": "2.3.8.0",
@@ -402,17 +448,17 @@
     },
     {
         "name": "epii/tiny-app-plus",
-        "version": "0.1.1",
-        "version_normalized": "0.1.1.0",
+        "version": "0.2.0",
+        "version_normalized": "0.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-php-app-plus.git",
-            "reference": "311605b3791801d8f5213b2c45433985295a768e"
+            "reference": "0669aae347d1e548408448388ea07cde9c9e1e0f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-php-app-plus/zipball/311605b3791801d8f5213b2c45433985295a768e",
-            "reference": "311605b3791801d8f5213b2c45433985295a768e",
+            "url": "https://api.github.com/repos/epaii/epii-php-app-plus/zipball/0669aae347d1e548408448388ea07cde9c9e1e0f",
+            "reference": "0669aae347d1e548408448388ea07cde9c9e1e0f",
             "shasum": "",
             "mirrors": [
                 {
@@ -426,11 +472,11 @@
             "epii/api-result": ">=0.0.1",
             "epii/cache": ">=0.0.1",
             "epii/template-engine": ">=0.0.1",
+            "epii/think-orm": ">=0.0.1",
             "epii/tiny-app": ">=0.0.1",
-            "php": ">=7.0",
-            "topthink/think-orm": "V1.2.17"
+            "php": ">=7.0"
         },
-        "time": "2019-09-05T09:12:57+00:00",
+        "time": "2019-09-19T08:17:59+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

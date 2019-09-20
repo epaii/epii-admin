@@ -6,7 +6,7 @@
             <td> <img src="<?php use think\Db;
                 use wangshouwei\session\Session;
                 $photo = Db::name('admin')->where('id',Session::get('user_id'))->value('photo');
-                echo $photo ?:'http://epii.gitee.io/epiiadmin/img/user2-160x160.jpg'; ?>"
+                echo $photo ?:'https://epii.gitee.io/epiiadmin-js/img/user2-160x160.jpg'; ?>"
                       style="width: 100px;height: 100px;border-radius: 50%"
                 ></td>
             <td><a class="btn btn-default btn-dialog"
@@ -48,7 +48,7 @@
 
         <tr>
             <td>注册时间</td>
-            <td><?php echo date('Y-m-d H:i:s',$user['add_time']) ?></td>
+            <td><?php echo date('Y-m-d H:i:s',$user['addtime']) ?></td>
 
         </tr>
     </table>

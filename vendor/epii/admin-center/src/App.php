@@ -44,16 +44,15 @@ class App extends \epii\app\App
     public function run($app = null)
     {
 
+
         if (!$this->_is_setconfig) {
             $this->setConfig(new AdminCenterPlusInitConfig());
         }
 
         $this->init(AdminCenterCommonInit::class);
 
-        if (Db::getConfig("hostname"))
-        {
-            $this->init(UpdateConfig::class);
-        }
+
+        $this->init(UpdateConfig::class);
 
 
         $this->setBaseNameSpace("epii\\admin\\center\\app");

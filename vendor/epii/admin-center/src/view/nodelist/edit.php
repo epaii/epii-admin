@@ -1,6 +1,6 @@
 <form role="form" class="epii" method="post" data-form="1" action="{url nodelist edit _vendor=1}">
     <input type="hidden" value="{$id}" name="id">
-    <?php  if (!isset($_GET["inhome"])) $_GET["inhome"]=0; ?>
+    <?php if (!isset($_GET["inhome"])) $_GET["inhome"] = 0; ?>
     <input type="hidden" value="{$_GET.inhome}" name="inhome">
     <div class="form-group">
         <label>节点名称：</label>
@@ -16,13 +16,24 @@
     </div>
     <div class="form-group">
         <label>打开方式：</label>
-        <span class="epii-clear"><input type="radio"   name="open_type"  value="0" <?php if ($nodeinfo['open_type'] == 0){ ?>checked<?php } ?> >导航栏,<input type="radio"   name="open_type"  value="1"  <?php if ($nodeinfo['open_type'] == 1){ ?>checked<?php } ?>>新窗口</span>
+        <span class="epii-clear"><input type="radio" name="open_type" value="0"
+                                        <?php if ($nodeinfo['open_type'] == 0){ ?>checked<?php } ?> >导航栏,<input
+                    type="radio" name="open_type" value="1" <?php if ($nodeinfo['open_type'] == 1){ ?>checked<?php } ?>>新窗口</span>
     </div>
     <div class="form-group">
         <label>图标：</label>
-        <input type="text" class="form-control" name="icon"  id="icon" value="{$nodeinfo.icon}" required style="display: block;width: 58%;height: 38px">
-        <a class="btn btn-default btn-dialog"   data-area="95%,100%" title="图标选择" href="?app=nodelist@icon&_vendor=1" style="width: 84px">更多</a>
+        <input type="text" class="form-control" name="icon" id="icon" value="{$nodeinfo.icon}" required
+               style="display: block;width: 58%;height: 38px">
+        <a class="btn btn-default btn-dialog" data-area="95%,100%" title="图标选择" href="?app=nodelist@icon&_vendor=1"
+           style="width: 84px">更多</a>
     </div>
+    <div class="form-group">
+        <label>右侧badge类：</label>
+        <input type="text" class="form-control" name="badge_class" id="badge_class" value="{$nodeinfo.badge_class}"
+               placeholder="类全称必须继承epii\admin\center\config\IBadgeInfo">
+
+    </div>
+
     <div class="form-group">
         <label>链接地址：</label>
         <input type="text" class="form-control" name="url" id="icon" value="{$nodeinfo.url}"
@@ -51,6 +62,6 @@
 </form>
 <script>
     function set_icon(icon) {
-        document.getElementById('icon').value=icon;
+        document.getElementById('icon').value = icon;
     }
 </script>

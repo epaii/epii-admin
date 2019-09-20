@@ -88,7 +88,7 @@ class config extends _controller
             $value= trim(Args::params("value"));
             $tip = trim(Args::params("tip"));
 
-            if(!$name || !$value || !$tip ){
+            if(!$name  || !$tip ){
                 $cmd = Alert::make()->msg('缺少参数')->icon('5')->onOk(null);
                 return JsCmd::make()->addCmd($cmd)->run();
             }

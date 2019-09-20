@@ -17,7 +17,7 @@ class JsCmd
 
     private static $_return_string = true;
 
-    public static function returnData( $is_data)
+    public static function returnData($is_data)
     {
         self::$_return_string = !$is_data;
     }
@@ -40,7 +40,7 @@ class JsCmd
     public function run()
     {
         if (self::$_return_string)
-            return json_encode(['code' => 1, "msg" => "", "data" => $this->getCmdData()],JSON_UNESCAPED_UNICODE);
+            return json_encode(['code' => 1, "msg" => "", "data" => $this->getCmdData()], JSON_UNESCAPED_UNICODE);
         else return $this->getCmdData();
     }
 
@@ -52,6 +52,11 @@ class JsCmd
     public static function alertRefresh($msg = "操作成功", $layerNum = 0)
     {
         return self::make()->addCmd(Alert::make()->msg($msg)->onOk(Refresh::make()->layerNum($layerNum)))->run();
+    }
+
+    public static function alert($msg = "操作成功")
+    {
+        return self::make()->addCmd(Alert::make()->msg($msg)->onOk(null))->run();
     }
 
     public static function alertCloseRefresh($msg = "操作成功", $closeNum = 0, $layerNum = 0)

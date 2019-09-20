@@ -15,7 +15,7 @@
     "epii/template-engine": ">=0.0.1",
     "epii/api-result": ">=0.0.1",
     "epii/cache": ">=0.0.1",
-    "topthink/think-orm": "V1.2.17"
+    "epii/think-orm": ">=0.0.1"
   },
   "autoload": {
     "psr-4": {

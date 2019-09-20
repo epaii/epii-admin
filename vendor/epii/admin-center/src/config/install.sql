@@ -84,7 +84,7 @@ INSERT INTO `epii_node` (`id`, `name`, `url`, `status`, `remark`, `sort`, `pid`,
 (14, '修改资料', '?app=user@modify&_vendor=1', 1, '', 3, 13, 'fa fa-pencil', NULL, '', 0),
 (16, '应用设置', '?app=config@index&_vendor=1', 1, '', 20, 3, 'fa fa-cogs', NULL, '', 0),
 (17, '后台首页', '?app=root@home', 1, '请修改为您的连接地址', 1, 0, 'fa fa-dashboard', NULL, NULL, 0),
-(18, '教程', 'http://docs.epii-admin.epii.cn/704402', 1, '', 100, 0, 'fa fa-circle-o', NULL, NULL, 1);
+(18, '教程', 'http://docs.epii-admin.epii.cn/704402', 1, '', 100, 0, 'fa fa-circle-o text-danger', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 

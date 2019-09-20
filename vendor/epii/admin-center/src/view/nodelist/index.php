@@ -61,7 +61,7 @@
                     data-edit-title="编辑：{name}"
                     data-del-url="{url nodelist del _vendor=1}&id={id}"
                     data-del-title="删除：{name}"
-                    data-area="40%,60%"
+                    data-area="70%,60%"
                 >操作
                 </th>
             </tr>

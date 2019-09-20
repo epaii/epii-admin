@@ -181,6 +181,7 @@ class nodelist extends _controller
             $data['sort'] = $sort;
             $data['icon'] = $icon;
             $data['url'] = $url;
+            $data['badge_class'] = Args::params("badge_class","");
 
             $data['open_type'] = (int) Args::params("open_type");
             $re = Db::name("node")

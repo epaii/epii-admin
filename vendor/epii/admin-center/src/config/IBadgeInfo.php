@@ -11,6 +11,8 @@ namespace epii\admin\center\config;
 
 interface IBadgeInfo
 {
+    public function __construct($menu_info);
+
     public function getCssClass();
 
     public function getText();

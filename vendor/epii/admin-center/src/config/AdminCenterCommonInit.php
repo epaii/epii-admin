@@ -25,7 +25,7 @@ class AdminCenterCommonInit implements IRun
 
         EpiiViewEngine::addParser("url", function ($args) {
 
-            return "?app=" . $args[0] . "@" . $args[1] . "&" . (isset($args[2]) ? $args[2] : "");
+            return "?app=" . (isset($args[0])?$args[0]:"") . "@" . (isset($args[1])?$args[1]:"") . "&" . (isset($args[2]) ? $args[2] : "");
         });
         EpiiViewEngine::addParser("args", function ($args) {
 

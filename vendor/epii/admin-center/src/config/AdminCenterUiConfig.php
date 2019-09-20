@@ -10,6 +10,7 @@ namespace epii\admin\center\config;
 
 
 use epii\admin\ui\lib\epiiadmin\MenuConfig;
+use epii\admin\ui\lib\epiiadmin\SiteConfig;
 use epii\admin\ui\lib\i\epiiadmin\IEpiiAdminUi;
 use epii\server\Args;
 use think\Db;
@@ -26,10 +27,10 @@ class AdminCenterUiConfig implements IEpiiAdminUi
         $user_name = Session::has('username') ? Session::get('username') : '';
         //var_dump(Settings::get("app.style.nav_theme"));
         $sitconfig->user_name($user_name)
-            ->app_theme(Settings::user("app.style.nav_theme",Settings::get("app.style.nav_theme")))
-            ->app_left_theme(Settings::user("app.style.left_bg_theme",Settings::get("app.style.left_bg_theme")));
-        $sitconfig->app_left_top_theme(Settings::user("app.style.left_top_theme",Settings::get("app.style.left_top_theme")));
-        $sitconfig->app_left_selected_theme(Settings::user("app.style.left_selected_theme",Settings::get("app.style.left_selected_theme")));
+            ->app_theme(Settings::user("app.style.nav_theme", Settings::get("app.style.nav_theme")))
+            ->app_left_theme(Settings::user("app.style.left_bg_theme", Settings::get("app.style.left_bg_theme")));
+        $sitconfig->app_left_top_theme(Settings::user("app.style.left_top_theme", Settings::get("app.style.left_top_theme")));
+        $sitconfig->app_left_selected_theme(Settings::user("app.style.left_selected_theme", Settings::get("app.style.left_selected_theme")));
         $sitconfig->site_logo(Settings::get("app.logo"));
         $sitconfig->site_title(Settings::get("app.title"));
         $sitconfig->site_name(Settings::get("app.title"));
@@ -39,13 +40,23 @@ class AdminCenterUiConfig implements IEpiiAdminUi
             $sitconfig->user_avatar($admin_info["photo"]);
         }
 
+
         return $sitconfig;
     }
 
 
-    public function getMenuBadgeInfo($menu_id): IBadgeInfo
+    public function getMenuBadgeInfo($menu): IBadgeInfo
     {
-        return new class implements  IBadgeInfo{
+        if (isset($menu["badge_class"])) {
+            if (class_exists($menu["badge_class"])) {
+                $class = new $menu["badge_class"]($menu);
+                if ($class instanceof IBadgeInfo) {
+                    return $class;
+                }
+            }
+        }
+        return new class($menu) implements IBadgeInfo
+        {
 
             public function getCssClass()
             {
@@ -58,6 +69,11 @@ class AdminCenterUiConfig implements IEpiiAdminUi
                 // TODO: Implement getText() method.
                 return null;
             }
+
+            public function __construct($menu_info)
+            {
+
+            }
         };
     }
 
@@ -66,7 +82,7 @@ class AdminCenterUiConfig implements IEpiiAdminUi
         // TODO: Implement getLeftMenuData() method.
         $m_config = new MenuConfig();
         $menus = $this->getLeftMenu();
-       // print_r($menus);
+        // print_r($menus);
         $open_id = Args::getVal("_code_id") ?: null;
 
         foreach ($menus as $menu) {
@@ -75,7 +91,8 @@ class AdminCenterUiConfig implements IEpiiAdminUi
                     $open_id = $menu['id'];
                 }
             }
-            $binfo = $this->getMenuBadgeInfo($menu['id']);
+
+            $binfo = $this->getMenuBadgeInfo($menu);
             $b_class = null;
             $b_text = null;
             if ($binfo) {
@@ -87,7 +104,7 @@ class AdminCenterUiConfig implements IEpiiAdminUi
         }
         if ($open_id === null) $open_id = 0;
 
-        $m_config->selectId($open_id)->isAllOpen(true);
+        $m_config->selectId($open_id)->isAllOpen(boolval(Settings::get("app.menu.open")));
         return $m_config;
     }
 
@@ -118,7 +135,7 @@ class AdminCenterUiConfig implements IEpiiAdminUi
         }
         $list = Db::name("node")->where($map)->select();
         //print_r($list);
-       // print_r(Db::getConfig());
+        // print_r(Db::getConfig());
         $arr1 = $this->sortarr('sort', SORT_ASC, array_filter($list, function ($val) {
             return $val['pid'] == 0;
         }));
