@@ -144,14 +144,45 @@ View::setEngine($config,支持自定义模板引擎类,默认为\epii\template\e
 ?号语法
 
 ```
+{? $a}  
 {? $a 1}  
 {? $a b} 
 
 ```
 相当于
 ``` 
+<?php   echo isset($a)?$a:""  ?> //
 <?php   echo isset($a)?$a:"1"  ?> //
 <?php   echo isset($a)?$a:"b"  ?>
+```
+并且
+```
+{$name?}
+{$name?"张三"}
+{$info["age"]?"18岁"}
+{$info.age?"18岁"}
+{loop $list.info?[]}
+
+```
+相当于
+``` 
+<?php   echo isset($name)?$name:($name="");  ?> //
+<?php   echo isset($name)?$name:($name="张三");  ?> //
+<?php   echo isset($info["age"])?$info["age"]:($info["age"]="张三");  ?> //
+<?php  foreach(isset($list["info"])?$list["info"]:($list["info"]="张三") as $key=>$value)  ?> //
+ 
+```
+
+
+默认参数
+
+```
+{$_view.get.}
+{$_view.post.}
+{$_view.server.}
+{$_view.cookie.}
+{$_view.sesstion.}
+
 ```
 
 > 支持php原生所有语法

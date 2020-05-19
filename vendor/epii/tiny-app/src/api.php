@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: mrren
@@ -11,13 +12,21 @@ namespace epii\server;
 
 abstract class api
 {
+    private $is_auth = false;
     protected function getNoNeedAuth(): array
     {
         return [];
     }
+    protected function onAuthFail()
+    {
+    }
 
     abstract protected function doAuth(): bool;
 
+    protected function isAuth()
+    {
+        return $this->is_auth;
+    }
     public function init()
     {
         $auth_bool = true;
@@ -26,13 +35,14 @@ abstract class api
             $m = \epii\server\App::getInstance()->getRunner()[1];
             if (in_array($m, $no) || ((count($no) == 1) && ($no[0] == "..."))) {
                 $auth_bool = false;
-
             }
         }
-        if ($auth_bool && !$this->doAuth()) {
-            $this->error("授权失败");
-        }
+        $this->is_auth = $this->doAuth();
+        if ($auth_bool && !$this->is_auth) {
 
+            $this->onAuthFail();
+            $this->error("授权失败", ["error_type" => "auth", "tip" => "授权失败"]);
+        }
     }
 
     protected function success($data = null, $msg = '', $code = 1, $type = null, array $header = [])
@@ -45,5 +55,4 @@ abstract class api
     {
         Response::error($msg, $data, $code, $type, $header);
     }
-
 }

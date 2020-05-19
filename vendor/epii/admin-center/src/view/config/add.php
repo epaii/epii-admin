@@ -3,7 +3,7 @@
               method="post"
               data-form="1"
               class="epii"
-              action="{url config add _vendor=1}">
+              action="{url config add _vendor=1}&addons_id={? $_view.get.addons_id}">
 
             <div class="form-group">
                 <label>属性:</label>

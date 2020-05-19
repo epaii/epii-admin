@@ -23,6 +23,12 @@ class JsonResponseHandler implements IResponseHandler
             'data' => $data,
         ];
 
+        if($header)
+        {
+            foreach ($header as $value){
+                header($value);
+            }
+        }
 
         $string = json_encode($result, JSON_UNESCAPED_UNICODE);
         if ($callback = Args::getVal("callback"))

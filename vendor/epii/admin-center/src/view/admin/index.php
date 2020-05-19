@@ -53,7 +53,7 @@
                 <th data-field="status" data-formatter="epiiFormatter.switch"   data-align="center"> 状态</th>
                 <th data-formatter="epiiFormatter.btns"
                     data-btns="edit,del"
-                    data-edit-url="{url admin edit _vendor=1}&id={id}"
+                    data-edit-url="{url admin add _vendor=1}&id={id}"
                     data-edit-title="编辑：{name}"
                     data-del-url="{url admin del _vendor=1}&id={id}"
                     data-del-title="删除：{name}"

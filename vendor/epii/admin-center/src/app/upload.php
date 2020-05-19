@@ -16,7 +16,7 @@ class upload extends _controller
 {
     public function img()
     {
-        echo AdminUiUpload::doUpload(["gif", "jpeg", "jpg", "png"], 2048000, pathinfo($_SERVER["SCRIPT_FILENAME"], PATHINFO_DIRNAME) . DIRECTORY_SEPARATOR . "upload", "upload/");
+        echo AdminUiUpload::doUpload(["gif", "jpeg", "jpg", "png"], 2048000);
         exit;
     }
 }

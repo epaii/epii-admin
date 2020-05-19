@@ -18,9 +18,24 @@ class LocalFileUploader implements IUploader
     public static function init(string $upload_dir, string $url_pre)
     {
         self::$dir = rtrim($upload_dir, DIRECTORY_SEPARATOR);
-        self::$url_pre = rtrim($url_pre, "/");
+        self::$url_pre = rtrim($url_pre, "/") . "/";
     }
 
+    public static function getInitUploadDir()
+    {
+        if (!self::$dir) {
+            self::$dir = pathinfo($_SERVER["SCRIPT_FILENAME"], PATHINFO_DIRNAME) . DIRECTORY_SEPARATOR . "upload";
+        }
+        return self::$dir;
+    }
+
+    public static function getInitUploadUrlPre()
+    {
+        if (!self::$url_pre) {
+            self::$url_pre = "upload/";
+        }
+        return self::$url_pre;
+    }
 
     public function handlePostFiles(array $allowedExts = ["gif", "jpeg", "jpg", "png"], $file_size = 204800, $dir = null, $url_pre = null): UploaderResult
     {
@@ -32,16 +47,17 @@ class LocalFileUploader implements IUploader
 
         } else {
 
-
             if (!$dir) {
-                $dir = self::$dir;
+                $dir = self::getInitUploadDir();
+            } else {
+                $dir = rtrim($dir, DIRECTORY_SEPARATOR);
             }
             if (!$url_pre) {
-                $url_pre = self::$url_pre;
+                $url_pre = self::getInitUploadUrlPre();
+            } else {
+                $url_pre = rtrim($url_pre, "/") . "/";
             }
 
-            $dir = rtrim($dir, DIRECTORY_SEPARATOR);
-            $url_pre = rtrim($url_pre, "/")."/";
 
             if (!$dir) {
                 $ret->error("请设置uploadDir,EpiiUploader::setUploadDir()");
@@ -84,7 +100,7 @@ class LocalFileUploader implements IUploader
                             // 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
                             move_uploaded_file($file["tmp_name"], $to_file_name);
                             $paths[] = $short_file_url = $short_dir . DIRECTORY_SEPARATOR . $short_file;
-                            $url[] = str_replace("\\","/",$url_pre . $short_file_url);
+                            $url[] = str_replace("\\", "/", $url_pre . $short_file_url);
 
 
                         }
@@ -97,7 +113,7 @@ class LocalFileUploader implements IUploader
             }
             if (count($paths) > 0) {
                 $ret->success(implode(",", $paths), implode(",", $url));
-            }else{
+            } else {
                 $ret->error("格式或大小不符合");
             }
 

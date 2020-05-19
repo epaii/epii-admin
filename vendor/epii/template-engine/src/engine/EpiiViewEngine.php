@@ -28,7 +28,7 @@ class EpiiViewEngine implements IEpiiViewEngine
         self::$view_fun[$tag_name] = $do;
     }
 
-    private $config = [];
+    protected $config = [];
 
     public function init(Array $config)
     {
@@ -57,7 +57,7 @@ class EpiiViewEngine implements IEpiiViewEngine
                     if (!is_array($value)) {
                         $select = "";
                         // var_dump($args);
-                        if ($select_value !== null && $key == $select_value  ) {
+                        if ($select_value !== null && $key == $select_value) {
                             $select = "selected";
                         }
                         $out .= "<option value='" . $key . "' {$select}>" . $value . "</option>";
@@ -96,15 +96,13 @@ class EpiiViewEngine implements IEpiiViewEngine
 
     public function fetch(string $file, Array $args = null)
     {
-        $tmpfile = $this->config["tpl_dir"] . DIRECTORY_SEPARATOR . $file . ".php";
 
-        if (!file_exists($tmpfile)) {
-            $tmpfile = $this->config["tpl_dir"] . DIRECTORY_SEPARATOR . $file . ".html";
-        }
 
-        if (!file_exists($tmpfile)) {
+        if (!($tmpfile = $this->get_file_path_and_name($file))) {
+
             return "";
         } else {
+
             ob_start();
             if ($args !== null)
                 extract($args);
@@ -126,9 +124,10 @@ class EpiiViewEngine implements IEpiiViewEngine
             return $tmpfile;
         }
         $compile_file = $this->config["cache_dir"] . DIRECTORY_SEPARATOR . md5($tmpfile) . ".php";
-        if (file_exists($compile_file) && (filemtime($compile_file) > filemtime($tmpfile))) {
+        if (file_exists($compile_file) && (filemtime($compile_file) > $this->get_filemtime($tmpfile))) {
 
         } else {
+
             $this->parse_tpl($tmpfile, $compile_file);
 
         }
@@ -139,12 +138,23 @@ class EpiiViewEngine implements IEpiiViewEngine
     private function stringToPhpData(string $string)
     {
 
-
         $string = trim($string);
         $string = trim($string, ";");
 
         $tmep_arr = explode("|", $string);
         $string = $tmep_arr[0];
+        $isset = false;
+        $isset_default = "";
+
+        if (($wenhaoindex = stripos($string, '?')) > 0) {
+            $isset_default = substr($string, $wenhaoindex + 1);
+            $string = substr($string, 0, $wenhaoindex);
+            $isset = true;
+
+        }
+        if (strlen($isset_default) == 0) {
+            $isset_default = "\"\"";
+        }
         if (isset($tmep_arr[1])) {
             $function = $tmep_arr[1];
         } else {
@@ -183,11 +193,18 @@ class EpiiViewEngine implements IEpiiViewEngine
         }
         if ($outstring === null)
             $outstring = "";
+
+
+        if ($isset) {
+
+            $outstring = "isset(" . $outstring . ")?" . $outstring . ":(" . $outstring . "=" . $isset_default . ")";
+        }
         if ($function) {
 
             $function = str_replace("\\,", "__dou__", $function);
 
             $function_array = explode(",", $function);
+
 
             $function = $function_array[0];
             unset($function_array[0]);
@@ -228,7 +245,7 @@ class EpiiViewEngine implements IEpiiViewEngine
 
             }
 
-            return "foreach({$args[0]} as {$args[1]}):";
+            return "foreach(" . $this->stringToPhpData($args[0]) . " as {$args[1]}):";
         } else if ($fun_name == "if" || $fun_name == "else" || $fun_name == "elseif") {
             return "$fun_name({$arg_string}):";
         } else if ($fun_name == "echo") {
@@ -242,18 +259,17 @@ class EpiiViewEngine implements IEpiiViewEngine
             if (isset($args[0])) {
 
 
-
 //                if ((stripos($args[0], "\"") !== 0) && stripos($args[0], "\'") !== 0) {
 //                    $args[0] = "\"{$args[0]}\"";
 //                }
-                $args[0] =  str_replace(["\"","\'"],["",""],$args[0]);
+                $args[0] = str_replace(["\"", "\'"], ["", ""], $args[0]);
 
-                $file_pre  = $this->config["tpl_dir"] . '/' . $args[0] ;
+                $file_pre = $this->config["tpl_dir"] . '/' . $args[0];
 //                if (!file_exists($file)) {
 //                    $file = $this->config["tpl_dir"] . '/' . $args[0] ;
 //                }
 
-                return " \$___file_pre_= \"".$file_pre."\"; if(!file_exists(\$__file_ = \$___file_pre_.\".php\")) \$__file_= \$___file_pre_.\".html\"; include \$this->get_compile_file(\$__file_); ";
+                return " \$___file_pre_= \"" . $file_pre . "\"; if(!file_exists(\$__file_ = \$___file_pre_.\".php\")) \$__file_= \$___file_pre_.\".html\"; include \$this->get_compile_file(\$__file_); ";
 
             }
         } else if ($fun_name == "?") {
@@ -316,12 +332,9 @@ class EpiiViewEngine implements IEpiiViewEngine
 
     private function parse_tpl(string $tmpfile, string $compile_file)
     {
-        if (!is_file($tmpfile)) {
 
-            return false;
-        }
 
-        $txt = $this->compileString(file_get_contents($tmpfile));
+        $txt = $this->compileString($this->file_get_contents($tmpfile));
 
 
         if (!is_dir($todir = dirname($compile_file))) {
@@ -398,4 +411,29 @@ class EpiiViewEngine implements IEpiiViewEngine
         ob_clean();
         return $content;
     }
+
+    public function get_file_path_and_name($file)
+    {
+        $tmpfile = $this->config["tpl_dir"] . DIRECTORY_SEPARATOR . $file . ".php";
+
+        if (!file_exists($tmpfile)) {
+            $tmpfile = $this->config["tpl_dir"] . DIRECTORY_SEPARATOR . $file . ".html";
+        }
+        if (file_exists($tmpfile)) {
+            return $tmpfile;
+        }
+        return false;
+
+    }
+
+    public function get_filemtime($file)
+    {
+        return filemtime($file);
+    }
+
+    public function file_get_contents($file)
+    {
+        return file_get_contents($file);
+    }
+
 }

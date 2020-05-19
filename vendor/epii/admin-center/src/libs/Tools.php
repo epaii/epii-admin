@@ -3,6 +3,7 @@
 namespace epii\admin\center\libs;
 
 use Closure;
+use epii\orm\Db;
 use epii\server\App;
 
 /**
@@ -48,7 +49,7 @@ class Tools
 
     public static function getEnableNameSpacePre()
     {
-        $name_pre = Tools::getObjectAttr(App::getInstance(), "name_space_pre", App::class);
+        $name_pre = App::getInstance()->getBaseNameSpace();//  Tools::getObjectAttr(App::getInstance(), "name_space_pre", App::class);
         $app_need = true;
         foreach ($name_pre as $value) {
             if (stripos($value, "app\\") === 0) {
@@ -62,15 +63,15 @@ class Tools
         return $name_pre;
     }
 
-    public static function getObjectAttr($object, $name, $newscop = null)
-    {
-        $tmp = Closure::bind(function () use ($name) {
-           return $this->{$name};
-        }, $object, $newscop ? $newscop : get_class($object));
+    // public static function getObjectAttr($object, $name, $newscop = null)
+    // {
+    //     $tmp = Closure::bind(function () use ($name) {
+    //        return $this->{$name};
+    //     }, $object, $newscop ? $newscop : get_class($object));
 
 
-        return $tmp();
-    }
+    //     return $tmp();
+    // }
 
 
     private static $vendor_dir = null;
@@ -92,6 +93,41 @@ class Tools
             }
         }
         return self::$vendor_dir = "";
+    }
+
+    public static function execSqlFile($file,$replace_prefix=""):bool
+    {
+        $sql = file_get_contents($file);
+        $config = Db::getConfig();
+        $link = mysqli_connect($config["hostname"], $config["username"], $config["password"], '', $config["hostport"]);
+
+        if (!$link) {
+            return false;
+        }
+        $db_has = mysqli_query($link, "use " . $config["database"]);
+        if (!$db_has) {
+            return false;
+        }
+        if($replace_prefix)
+          $sql = str_replace("`".$replace_prefix, "`" . Db::getConfig("prefix"), $sql);
+
+        $_arr = explode(';', $sql);
+        $_arr = explode(';', $sql);
+        mysqli_query($link, "SET AUTOCOMMIT=0");
+        mysqli_begin_transaction($link);
+        foreach ($_arr as $_value) {
+            if ($_value = trim($_value)) {
+                $query_info = mysqli_query($link, $_value);
+
+
+                if ($query_info === false) {
+                    mysqli_query($link, "ROLLBACK");     
+                    return false;
+                }
+            }
+
+        }
+        return true;
     }
 
 }

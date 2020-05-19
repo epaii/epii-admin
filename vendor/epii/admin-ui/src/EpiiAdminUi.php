@@ -20,7 +20,7 @@ class EpiiAdminUi
         "fontawesome_fonts_url_pre" => "https://epaii.github.io/epii-admin-static/js/plugins/font-awesome/fonts",
         "js_app_dir" => "static/js/app/",
         "site_url" => "",
-        "version" => "0.0.2",
+        "version" => "0.0.8",
         "require_config_file" => "",
         "css" => []
 

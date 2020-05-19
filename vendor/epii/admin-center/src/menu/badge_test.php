@@ -17,7 +17,7 @@ class badge_test implements IBadgeInfo
 
     public function getCssClass()
     {
-        if ($this->info["id"]==5)
+        if ($this->info["id"]==5 || $this->info["id"]==9)
         {
             return "badge badge-danger";
         }else{
@@ -28,7 +28,7 @@ class badge_test implements IBadgeInfo
 
     public function getText()
     {
-        if ($this->info["id"]==5)
+        if ($this->info["id"]==5 || $this->info["id"]==9)
         {
             return "New";
         }else{

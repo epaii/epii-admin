@@ -21,6 +21,7 @@ class App
     private $init_fun = [];
     private static $_app = null;
     private $runner_object = null;
+    public $runner_name_space_pre = null;
     private $runner_method = null;
     private $name_space_pre = [];
     private $forbid_name_space_pre = [];
@@ -43,6 +44,9 @@ class App
         return self::$_app;
     }
 
+    public function getBaseNameSpace(){
+        return $this->name_space_pre;
+    }
 
     public function setBaseNameSpace(...$base_name)
     {
@@ -150,7 +154,7 @@ class App
 
         if (is_string($app)) {
 
-
+            $this->beforRun();
             $find = false;
 
             $app_o = $app;
@@ -167,6 +171,7 @@ class App
                     $app = $app_o;
                 }
                 if (class_exists($app)) {
+                    $this->runner_name_space_pre = $item;
                     $find = true;
                     break;
                 }
@@ -198,7 +203,7 @@ class App
                 }
 
 
-            $this->beforRun();
+           
 
             $run = new $app();
             $this->runner_object = $run;

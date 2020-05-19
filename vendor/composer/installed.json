@@ -1,17 +1,17 @@
 [
     {
         "name": "epii/admin-center",
-        "version": "0.3.4",
-        "version_normalized": "0.3.4.0",
+        "version": "0.4.3",
+        "version_normalized": "0.4.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-admin-project-composer.git",
-            "reference": "91900eee07d9f5db8125f29edea5d3c8bd029241"
+            "reference": "65ca6531dd2e84e616cda653a76504e9b3723602"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-admin-project-composer/zipball/91900eee07d9f5db8125f29edea5d3c8bd029241",
-            "reference": "91900eee07d9f5db8125f29edea5d3c8bd029241",
+            "url": "https://api.github.com/repos/epaii/epii-admin-project-composer/zipball/65ca6531dd2e84e616cda653a76504e9b3723602",
+            "reference": "65ca6531dd2e84e616cda653a76504e9b3723602",
             "shasum": "",
             "mirrors": [
                 {
@@ -28,7 +28,7 @@
             "php": ">=7.0",
             "wangshouwei/session": ">=0.0.1"
         },
-        "time": "2019-09-20T08:47:31+00:00",
+        "time": "2020-05-19T01:58:15+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -50,17 +50,17 @@
     },
     {
         "name": "epii/admin-ui",
-        "version": "0.1.5",
-        "version_normalized": "0.1.5.0",
+        "version": "0.1.7",
+        "version_normalized": "0.1.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-admin-ui.git",
-            "reference": "09e594000468a6fb19e6e894a6649944186ace4c"
+            "reference": "631967dad06313f1306c29696d88e69aa02f195d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-admin-ui/zipball/09e594000468a6fb19e6e894a6649944186ace4c",
-            "reference": "09e594000468a6fb19e6e894a6649944186ace4c",
+            "url": "https://api.github.com/repos/epaii/epii-admin-ui/zipball/631967dad06313f1306c29696d88e69aa02f195d",
+            "reference": "631967dad06313f1306c29696d88e69aa02f195d",
             "shasum": "",
             "mirrors": [
                 {
@@ -72,7 +72,7 @@
         "require": {
             "php": ">=5.6"
         },
-        "time": "2019-09-05T08:12:17+00:00",
+        "time": "2019-10-25T09:22:18+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -138,17 +138,17 @@
     },
     {
         "name": "epii/admin-ui-upload",
-        "version": "0.0.6",
-        "version_normalized": "0.0.6.0",
+        "version": "0.0.8",
+        "version_normalized": "0.0.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-admin-ui-upload.git",
-            "reference": "95af05000878ea38a709aa3939bba1c3940bd07d"
+            "reference": "f2cc3c3fe2ee7f9ffe9bb4872574f2a565d27b56"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-admin-ui-upload/zipball/95af05000878ea38a709aa3939bba1c3940bd07d",
-            "reference": "95af05000878ea38a709aa3939bba1c3940bd07d",
+            "url": "https://api.github.com/repos/epaii/epii-admin-ui-upload/zipball/f2cc3c3fe2ee7f9ffe9bb4872574f2a565d27b56",
+            "reference": "f2cc3c3fe2ee7f9ffe9bb4872574f2a565d27b56",
             "shasum": "",
             "mirrors": [
                 {
@@ -160,7 +160,7 @@
         "require": {
             "php": ">=5.6"
         },
-        "time": "2019-02-16T07:55:00+00:00",
+        "time": "2019-10-08T02:24:48+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -314,17 +314,17 @@
     },
     {
         "name": "epii/template-engine",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
+        "version": "1.1.6",
+        "version_normalized": "1.1.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-php-template.git",
-            "reference": "9d1df1414e2804e751bea76f67e6f2c0e9ca06e2"
+            "reference": "66375aa83d7e9996905fc8520a826a470efebf86"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-php-template/zipball/9d1df1414e2804e751bea76f67e6f2c0e9ca06e2",
-            "reference": "9d1df1414e2804e751bea76f67e6f2c0e9ca06e2",
+            "url": "https://api.github.com/repos/epaii/epii-php-template/zipball/66375aa83d7e9996905fc8520a826a470efebf86",
+            "reference": "66375aa83d7e9996905fc8520a826a470efebf86",
             "shasum": "",
             "mirrors": [
                 {
@@ -336,7 +336,7 @@
         "require": {
             "php": ">=5.6"
         },
-        "time": "2019-09-11T07:28:57+00:00",
+        "time": "2020-01-13T02:17:06+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -358,17 +358,17 @@
     },
     {
         "name": "epii/think-orm",
-        "version": "0.0.1",
-        "version_normalized": "0.0.1.0",
+        "version": "0.0.3",
+        "version_normalized": "0.0.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-think-orm.git",
-            "reference": "ad8aaf9d3da8e393772c6efc27cb8f3481ed6c9c"
+            "reference": "7e84595e16bdcc0e9418a1cf454e598db61ea2a1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-think-orm/zipball/ad8aaf9d3da8e393772c6efc27cb8f3481ed6c9c",
-            "reference": "ad8aaf9d3da8e393772c6efc27cb8f3481ed6c9c",
+            "url": "https://api.github.com/repos/epaii/epii-think-orm/zipball/7e84595e16bdcc0e9418a1cf454e598db61ea2a1",
+            "reference": "7e84595e16bdcc0e9418a1cf454e598db61ea2a1",
             "shasum": "",
             "mirrors": [
                 {
@@ -381,7 +381,7 @@
             "php": ">=7.1",
             "topthink/think-orm": "V1.2.17"
         },
-        "time": "2019-09-20T01:01:51+00:00",
+        "time": "2019-09-25T05:29:34+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -404,17 +404,17 @@
     },
     {
         "name": "epii/tiny-app",
-        "version": "2.3.8",
-        "version_normalized": "2.3.8.0",
+        "version": "2.5.4",
+        "version_normalized": "2.5.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/php-tiny-app.git",
-            "reference": "c9c8a8f6ff0c491c93d8d3bb553570cbce68ee2b"
+            "reference": "1668c944eb81aa6a0371e8dd6d741596ac57d745"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/php-tiny-app/zipball/c9c8a8f6ff0c491c93d8d3bb553570cbce68ee2b",
-            "reference": "c9c8a8f6ff0c491c93d8d3bb553570cbce68ee2b",
+            "url": "https://api.github.com/repos/epaii/php-tiny-app/zipball/1668c944eb81aa6a0371e8dd6d741596ac57d745",
+            "reference": "1668c944eb81aa6a0371e8dd6d741596ac57d745",
             "shasum": "",
             "mirrors": [
                 {
@@ -426,7 +426,7 @@
         "require": {
             "php": ">=7.0"
         },
-        "time": "2019-09-05T10:04:21+00:00",
+        "time": "2020-05-18T10:30:31+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -448,17 +448,17 @@
     },
     {
         "name": "epii/tiny-app-plus",
-        "version": "0.2.0",
-        "version_normalized": "0.2.0.0",
+        "version": "0.2.3",
+        "version_normalized": "0.2.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-php-app-plus.git",
-            "reference": "0669aae347d1e548408448388ea07cde9c9e1e0f"
+            "reference": "399576480984f26ceea4bf96e6e99320f56527cf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-php-app-plus/zipball/0669aae347d1e548408448388ea07cde9c9e1e0f",
-            "reference": "0669aae347d1e548408448388ea07cde9c9e1e0f",
+            "url": "https://api.github.com/repos/epaii/epii-php-app-plus/zipball/399576480984f26ceea4bf96e6e99320f56527cf",
+            "reference": "399576480984f26ceea4bf96e6e99320f56527cf",
             "shasum": "",
             "mirrors": [
                 {
@@ -476,7 +476,7 @@
             "epii/tiny-app": ">=0.0.1",
             "php": ">=7.0"
         },
-        "time": "2019-09-19T08:17:59+00:00",
+        "time": "2020-05-15T08:34:49+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

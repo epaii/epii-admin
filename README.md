@@ -3,7 +3,7 @@
 epii-admin php开源交互性管理后台框架,基于epii-server+epii-route+Adminlte3.0+Require.js, 让复杂的交互变得更简单！Phper快速搭建交互性平台的开发框架
 
 <p align=center>
-<img src="https://raw.githubusercontent.com/epaii/epii-admin/master/epiiadmin_logo.jpg" alt="epiiadmin" width="100%">
+<img src="https://gitee.com/epii/EpiiAdmin/raw/master/epiiadmin_logo.jpg" alt="epiiadmin" width="100%">
  
 </p>
 
@@ -73,7 +73,7 @@ https://gitee.com/epii/EpiiAdmin
 
 [EpiiAdmin在线中文文档](https://www.kancloud.cn/rlr123654/epiiadmin-php/704402)
 
-[screen]:https://raw.githubusercontent.com/epaii/epii-admin/master/screen.png
+[screen]:https://gitee.com/epii/EpiiAdmin/raw/master/screen.png
 
-[mulu]:https://raw.githubusercontent.com/epaii/epii-admin/v1.0/mulu1.png
+[mulu]:https://gitee.com/epii/EpiiAdmin/raw/master/mulu1.png
 

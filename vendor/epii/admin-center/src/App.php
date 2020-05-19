@@ -6,10 +6,13 @@ use epii\admin\center\app\root;
 use epii\admin\center\config\AdminCenterCommonInit;
 use epii\admin\center\config\AdminCenterPlusInitConfig;
 use epii\admin\center\config\UpdateConfig;
+use epii\admin\center\libs\AddonsManager;
+use epii\admin\center\libs\AddonsScan;
 use epii\app\i\IAppPlusInitConfig;
 
 use epii\server\Args;
-use think\Db;
+use epii\server\Response;
+use wangshouwei\session\Session;
 
 /**
  * Created by PhpStorm.
@@ -26,6 +29,7 @@ class App extends \epii\app\App
     {
 
 
+        Session::start();
         if (Args::getVal("_vendor") && Args::getVal("_vendor") == 1) {
             if (isset($_REQUEST['app'])) {
                 $_REQUEST['app'] = "epii\\admin\\center\\app\\" . $_REQUEST['app'];
@@ -53,11 +57,12 @@ class App extends \epii\app\App
 
 
         $this->init(UpdateConfig::class);
-
-
+     
+        $this->init(AddonsManager::class);
+  
         $this->setBaseNameSpace("epii\\admin\\center\\app");
 
-        return parent::run($app);
+        parent::run($app);
     }
 
     public function setConfig(IAppPlusInitConfig $appPlusInitConfig)
@@ -70,5 +75,24 @@ class App extends \epii\app\App
         ProjectConfig::_setAdminCenterPlusInitConfig($appPlusInitConfig);
 
         return parent::setConfig($appPlusInitConfig);
+    }
+
+    public function setAddonsDevelopment($name){
+         Args::setConfig("__addons_development_name",$name);
+         Args::setConfig("__addons_development",true);
+         $this->init(function() use ($name){
+            $config =  AddonsManager::loadAddons($name);
+            if(!$config){
+                    AddonsScan::scan();
+                    $config =  AddonsManager::loadAddons($name);  
+            }
+            if ($config  && !$config["install"]) {
+
+                    if(!AddonsManager::install($name)){
+                        AddonsManager::error("模块没有自动安装成功");
+                    }
+            }
+         });
+        return $this;
     }
 }

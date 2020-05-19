@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: mrren
@@ -8,7 +9,7 @@
 
 namespace epii\admin\center\config;
 
-
+use epii\admin\center\libs\Tools;
 use epii\admin\center\ProjectConfig;
 use epii\server\i\IRun;
 use think\Db;
@@ -23,11 +24,11 @@ class UpdateConfig implements IRun
         }
         // TODO: Implement run() method.
 
-
+        $dir = ProjectConfig::getAdminCenterPlusInitConfig()->get_cache_dir() . DIRECTORY_SEPARATOR . "update" . DIRECTORY_SEPARATOR;
+              
         Db::transaction(
-            function () {
-                $dir = ProjectConfig::getAdminCenterPlusInitConfig()->get_cache_dir() . DIRECTORY_SEPARATOR . "update" . DIRECTORY_SEPARATOR;
-                if (!is_dir($dir)) {
+            function () use($dir){
+               if (!is_dir($dir)) {
                     mkdir($dir, 0777, true);
                 }
                 if (!file_exists($file = $dir . "20190319.update")) {
@@ -67,6 +68,32 @@ class UpdateConfig implements IRun
             }
         );
 
+        Db::transaction(
+            function () use($dir){
+                if (!file_exists($file = $dir . "20200516.update")) {
 
+                    $info = Db::name("node")->where("id", 9)->find();
+                    if (!$info) {
+                        $ret = Tools::execSqlFile(__DIR__."/../data/update_sql/20200516.sql","epii_");
+                        if(! $ret) return false;
+                        Db::query("INSERT INTO `" . Db::getConfig("prefix") . "node` (`id`, `name`, `url`, `status`, `remark`, `sort`, `pid`, `icon`, `badge`, `is_open`, `open_type`) VALUES(8, '扩展中心', '', 1, '扩展中心', 9, 0, 'fa fa-cloud', NULL, NULL, 0)");
+                        Db::query("INSERT INTO `" . Db::getConfig("prefix") . "node` (`id`, `name`, `url`, `status`, `remark`, `sort`, `pid`, `icon`, `badge`, `is_open`, `open_type`,`badge_class`) VALUES(9, '应用列表', '?app=addons@index&_vendor=1', 1, '应用列表', 1, 8, 'fa fa-cloud', NULL, NULL, 0,'epii\\\\admin\\\\center\\\\menu\\\\badge_test')");
+                    }
+
+                    file_put_contents($file, 1);
+                }
+                if (!file_exists($file = $dir . "2020051602.update")) {
+
+                    $info = Db::name("node")->where("id", 9)->find();
+                    if (!isset($info["addons_id"])) {
+                        $ret = Tools::execSqlFile(__DIR__."/../data/update_sql/2020051602.sql","epii_");
+                        if(! $ret) return false;
+                     }
+
+                    file_put_contents($file, 1);
+                }
+
+            }
+        );
     }
 }

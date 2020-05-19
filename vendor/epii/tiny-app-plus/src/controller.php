@@ -35,7 +35,7 @@ class controller
 
     private function getDefaultFile()
     {
-        return strtolower(str_replace("\\", "/", substr($this->runer_class_name, strpos($this->runer_class_name, "\\") + 1))) . "/" . strtolower($this->runer_function);
+        return strtolower(str_replace("\\", "/", str_replace(App::getInstance()->runner_name_space_pre."\\", "",$this->runer_class_name))) . "/" . strtolower($this->runer_function);
     }
 
     protected function setViewEngine(IEpiiViewEngine $engine)
@@ -138,6 +138,9 @@ class controller
         // TODO: Implement __set() method.
         if (stripos($name, "_as_") === 0) {
             $this->assign(substr($name, 4), $value);
+        }
+        if (stripos($name, "_js_as_") === 0) {
+            $this->adminUijsArgs(substr($name, 7), $value);
         }
     }
 

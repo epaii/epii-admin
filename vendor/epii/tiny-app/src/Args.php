@@ -33,6 +33,21 @@ class Args
         self::$filters = array_merge(self::$filters, $filter);
     }
 
+    public static function isPost()
+    {
+        return isset($_SERVER['REQUEST_METHOD']) && (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST');
+
+    }
+
+    public static function isGet()
+    {
+        return isset($_SERVER['REQUEST_METHOD']) && (strtoupper($_SERVER['REQUEST_METHOD']) == 'GET');
+    }
+
+    public static function isAjax()
+    {
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+    }
 
     public static function is_cli()
     {
@@ -221,18 +236,25 @@ class Args
                 }
 
 
-
-                if ($formate) {
+                if ($formate && strlen($value) > 0) {
                     if (in_array("d", $formate)) {
                         $value = (int)$value;
                     } else if (in_array("j", $formate) || in_array("json", $formate)) {
                         $value = json_decode($value, true);
+                    } else if (in_array("explode", $formate )|| in_array("e", $formate)|| in_array("split", $formate)) {
+                        $value = urldecode($value);
+                        if (stripos($value, ",") !== false) {
+                            $value = explode(",", $value);
+                        } elseif (stripos($value, ";") !== false) {
+                            $value = explode(";", $value);
+                        }
+
                     } else if (in_array("b", $formate)) {
                         $value = $value ? true : false;
                     } else if (in_array("f", $formate)) {
                         $value = floatval($value);
                     } else if (in_array("email", $formate)) {
-                        Validator::isEmail($value,(!$is_default_value) && $default ? $default : $index . "不是有效的邮箱格式");
+                        Validator::isEmail($value, (!$is_default_value) && $default ? $default : $index . "不是有效的邮箱格式");
                     } else if (in_array("phone", $formate)) {
                         Validator::isPhone($value, (!$is_default_value) && $default ? $default : $index . "不是有效手机号格式");
                     } else if (in_array("idcard", $formate)) {

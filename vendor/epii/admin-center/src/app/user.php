@@ -18,6 +18,7 @@ use epii\admin\ui\lib\epiiadmin\jscmd\Refresh;
 use epii\admin\ui\lib\epiiadmin\jscmd\Url;
 use epii\server\Args;
 use epii\tools\classes\ClassTools;
+use epii\ui\upload\driver\LocalFileUploader;
 use think\Db;
 use wangshouwei\session\Session;
 
@@ -173,7 +174,7 @@ class user extends _controller
     {
 
         $path = Args::params('path');
-        $path = '/upload/'.str_replace('\\','/',$path);
+        $path = LocalFileUploader::getInitUploadUrlPre().str_replace('\\','/',$path);
         $id =Session::get('user_id');
         $res = Db::name('admin')->where('id', $id)->setField('photo', $path);
 

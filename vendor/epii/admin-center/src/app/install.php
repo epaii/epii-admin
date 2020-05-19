@@ -49,6 +49,7 @@ class install extends _controller
             if (!@file_put_contents($config_file = $config_dir . "/db.conf.php", 1)) {
                 return JsCmd::alert("没有权限写文件" . $config_file);
             }
+            @unlink($config_file);
 
 
             $config = $_POST;

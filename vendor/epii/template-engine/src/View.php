@@ -1,4 +1,5 @@
 <?php
+
 namespace epii\template;
 
 use epii\template\engine\EpiiViewEngine;
@@ -25,6 +26,32 @@ class View
 
     private static $comon_data = [];
 
+    public static function getEngine($engine = null): IEpiiViewEngine
+    {
+        if ($engine === null) {
+            $engine1 = self::$engine;
+        } else {
+            $engine1 = $engine;
+        }
+
+        if (is_string($engine1)) {
+
+            if (!class_exists($engine1)) {
+                echo "tmplate engine not exists!";
+                exit();
+            }
+            $engine_mod = new $engine1();
+            if ($engine_mod instanceof IEpiiViewEngine) {
+                $engine_mod->init(self::$config);
+            }
+        } else {
+            $engine_mod = $engine1;
+        }
+        if ($engine === null) {
+            self::$engine = $engine_mod;
+        }
+        return $engine_mod;
+    }
 
     public static function setEngine(Array $config, string $engine = null)
     {
@@ -107,7 +134,9 @@ class View
             $out = self::$comon_data;
         }
         $out["_view"] = ["config" => self::$config, "get" => $_GET, "post" => $_POST, "cookie" => $_COOKIE, "server" => $_SERVER];
-
+        if (isset($_SESSION)) {
+            $out["_view"]["session"] = $_SESSION;
+        }
         if ($args) {
             $out = array_merge($out, $args);
         }
@@ -116,27 +145,9 @@ class View
 
     private static function parseContent(string $file, Array $args = null, IEpiiViewEngine $engine = null, $is_file = true)
     {
-        if ($engine === null) {
-            $engine = self::$engine;
-        }
 
         $args = self::getArgs($args);
-
-
-        if (is_string($engine)) {
-
-            if (!class_exists($engine)) {
-                echo "tmplate engine not exists!";
-                exit();
-            }
-            $engine_mod = new $engine();
-            if ($engine_mod instanceof IEpiiViewEngine) {
-                $engine_mod->init(self::$config);
-            }
-        } else {
-            $engine_mod = $engine;
-        }
-
+        $engine_mod = self::getEngine($engine);
         if ($engine_mod instanceof IEpiiViewEngine) {
 
             if ($is_file)
