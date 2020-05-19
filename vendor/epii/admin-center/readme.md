@@ -31,6 +31,7 @@ ALTER TABLE `epii_setting` DROP INDEX `name`, ADD UNIQUE `name` (`name`, `uid`) 
 
 ![screen]
 
-[screen]:https://raw.githubusercontent.com/epaii/epii-admin/master/screen.png
+
+[screen]:https://gitee.com/epii/epiiadmin-js/raw/master/img/screen.png
 
  

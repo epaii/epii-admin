@@ -1,17 +1,17 @@
 [
     {
         "name": "epii/admin-center",
-        "version": "0.4.3",
-        "version_normalized": "0.4.3.0",
+        "version": "0.4.5",
+        "version_normalized": "0.4.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/epaii/epii-admin-project-composer.git",
-            "reference": "65ca6531dd2e84e616cda653a76504e9b3723602"
+            "reference": "48a351b6669028f504404100af5ddbf4ccf1d57e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/epaii/epii-admin-project-composer/zipball/65ca6531dd2e84e616cda653a76504e9b3723602",
-            "reference": "65ca6531dd2e84e616cda653a76504e9b3723602",
+            "url": "https://api.github.com/repos/epaii/epii-admin-project-composer/zipball/48a351b6669028f504404100af5ddbf4ccf1d57e",
+            "reference": "48a351b6669028f504404100af5ddbf4ccf1d57e",
             "shasum": "",
             "mirrors": [
                 {
@@ -28,7 +28,7 @@
             "php": ">=7.0",
             "wangshouwei/session": ">=0.0.1"
         },
-        "time": "2020-05-19T01:58:15+00:00",
+        "time": "2020-05-19T02:25:50+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
